@@ -1,7 +1,7 @@
 package cda.commons.libs;
 
-public class VisualAssets {
+public class VisualAsset {
 
 // TODO methods to import every visual files
-	
+
 }
