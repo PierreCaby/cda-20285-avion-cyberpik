@@ -8,7 +8,7 @@ public enum MusicAsset {
 	private final String fileName;
 
 	MusicAsset(String pFileName) {
-		this.fileName = "audio/game-music/";
+		this.fileName = "assets/audio/game-music/" + pFileName;
 	}
 
 	public String getFileName() {
