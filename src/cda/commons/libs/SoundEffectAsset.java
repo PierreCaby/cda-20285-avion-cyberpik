@@ -12,7 +12,7 @@ public enum SoundEffectAsset {
 	private final String fileName;
 
 	SoundEffectAsset(String pFileName) {
-		this.fileName = "audio/sound-effect/";
+		this.fileName = "assets/audio/sound-effect/" + pFileName;
 	}
 
 	public String getFileName() {
