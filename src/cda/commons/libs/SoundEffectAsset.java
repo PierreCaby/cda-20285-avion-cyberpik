@@ -14,18 +14,18 @@ public enum SoundEffectAsset {
 	SHIELD("shield.wav"),
 	SHOT("shot.wav");
 
-	private final String fileName;
+	private final String filePath;
 
 	SoundEffectAsset(String pFileName) {
-		this.fileName = "assets/audio/sound-effect/" + pFileName;
+		this.filePath = new File("assets/audio/sound-effect/" + pFileName).toURI().toString();
 	}
 
-	public String getFileName() {
-		return fileName;
+	public String getFilePath() {
+		return filePath;
 	}
 	
 	public static void play(SoundEffectAsset pSoundEffect) {
-		Media soundEffectMedia =  new Media(new File(pSoundEffect.getFileName()).toURI().toString());
+		Media soundEffectMedia =  new Media(pSoundEffect.filePath);
 		MediaPlayer soundEffectMediaPlayer = new MediaPlayer(soundEffectMedia);
 		if(pSoundEffect == SHOT) {
 			soundEffectMediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
