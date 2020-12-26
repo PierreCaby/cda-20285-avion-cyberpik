@@ -1,5 +1,6 @@
 package cda.commons.display;
 
+import cda.commons.libs.SoundEffectAsset;
 import cda.commons.libs.VisualAsset;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -23,7 +24,7 @@ public class ExplosionVisualDisplay extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 
-		stage.setTitle("Visual Display");
+		stage.setTitle("Explosion Display");
 		Group root = new Group();
 		Image image = new Image(VisualAsset.EXPLOSION.getFilePath());
 
@@ -38,11 +39,13 @@ public class ExplosionVisualDisplay extends Application {
 		Timeline timeline = new Timeline();
 
 		for (int i = 0; i <= numberOfFrames; i++) {
-			KeyFrame kf = new KeyFrame(Duration.millis(i * 50),
+			KeyFrame vKF = new KeyFrame(Duration.millis(i * 150),
 					new KeyValue(view.xProperty(), -frameWidth * i, Interpolator.DISCRETE));
-			timeline.getKeyFrames().add(kf);
+			timeline.getKeyFrames().add(vKF);
 		}
-	    timeline.setCycleCount(Timeline.INDEFINITE);
+		SoundEffectAsset.play(SoundEffectAsset.EXPLOSION);
+
+//		timeline.setCycleCount(Timeline.INDEFINITE);
 		timeline.play();
 
 		root.getChildren().add(view);
