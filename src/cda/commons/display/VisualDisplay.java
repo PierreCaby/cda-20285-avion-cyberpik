@@ -17,13 +17,14 @@ public class VisualDisplay extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
+	
 		stage.setTitle("Visual Display");
 
 		Group root = new Group();
 		Scene theScene = new Scene(root);
 		stage.setScene(theScene);
 
-		Canvas canvas = new Canvas(500, 500);
+		Canvas canvas = new Canvas(500, 700);
 		root.getChildren().add(canvas);
 
 		GraphicsContext gc = canvas.getGraphicsContext2D();
