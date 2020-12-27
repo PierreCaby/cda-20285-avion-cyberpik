@@ -9,7 +9,7 @@ module cda {
 	exports cda.commons.utils;
 	exports cda.screens;
 
+	requires javafx.base;
 	requires javafx.graphics;
 	requires javafx.media;
-	requires javafx.base;
 }
