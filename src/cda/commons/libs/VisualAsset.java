@@ -16,12 +16,12 @@ public enum VisualAsset {
 	
 	EXPLOSION("explosion/explosion.png"),
 	
-	SHIP("vessel/ship.png"),
-	SHIP_NOREACTOR("vessel/ship-noreactor.png"),
-	SHIP_LEFT("vessel/ship-left.png"),
-	SHIP_RIGHT("vessel/ship-right.png"),
-	SHIELD("vessel/shield.png"),
-	SHOOT("vessel/shoot.png");
+	SHIP("ship/ship.png"),
+	SHIP_NOREACTOR("ship/ship-noreactor.png"),
+	SHIP_LEFT("ship/ship-left.png"),
+	SHIP_RIGHT("ship/ship-right.png"),
+	SHIELD("ship/shield.png"),
+	SHOOT("ship/shoot.png");
 
 
 	private final String filePath;
