@@ -3,8 +3,7 @@ package cda.game;
 public class Launcher {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		SchmupApp.launch(args);
 	}
 
 }
