@@ -8,11 +8,11 @@ import javafx.scene.image.Image;
 public enum EnemiesType {
 	
 
-	ASTEROID(Math.random()*460, 0, 40, 40, new Image(VisualAsset.ASTEROID_CLASSIC.getFilePath()), 0.01, 1, 1, false),
-	ASTEROID_FIRE(Math.random()*440, 0, 60, 60, new Image(VisualAsset.ASTEROID_FIRE.getFilePath()), 0.008, 2, 2, false),
-	ASTEROID_ICE(Math.random()*450, 0, 50, 50, new Image(VisualAsset.ASTEROID_ICE.getFilePath()), 0.01, 2, 3, false),
-	ASTEROID_ICEBERG(Math.random()*400, 0, 100, 100, new Image(VisualAsset.ASTEROID_ICE.getFilePath()), 0.01, 4, 5, false),
-	ASTEROID_ZIGZAG(Math.random()*460, 0, 40, 40, new Image(VisualAsset.ASTEROID_ZIGZAG.getFilePath()), 0.08, 2, 2, true);
+	ASTEROID(Math.random()*460, -100, 40, 40, new Image(VisualAsset.ASTEROID_CLASSIC.getFilePath()), 3.5, 1, 1, false),
+	ASTEROID_FIRE(Math.random()*440, -100, 60, 60, new Image(VisualAsset.ASTEROID_FIRE.getFilePath()), 4, 2, 2, false),
+	ASTEROID_ICE(Math.random()*450, -100, 50, 50, new Image(VisualAsset.ASTEROID_ICE.getFilePath()), 3.5, 2, 3, false),
+	ASTEROID_ICEBERG(Math.random()*400, -100, 100, 100, new Image(VisualAsset.ASTEROID_ICE.getFilePath()), 3.5, 4, 5, false),
+	ASTEROID_ZIGZAG(100 + Math.random()*360, -100, 40, 40, new Image(VisualAsset.ASTEROID_ZIGZAG.getFilePath()), 4, 2, 2, true);
 	
 	private double positionX;
 	private double positionY;
@@ -56,7 +56,7 @@ public enum EnemiesType {
 		}
 	}
 	
-	public Enemy create() {
+	public static Enemy create() {
 		EnemiesType enemiesType = randomize();
 		return new Enemy(enemiesType.positionX, enemiesType.positionY, enemiesType.dimensionX, enemiesType.dimensionY,
 				enemiesType.image, enemiesType.speed, enemiesType.damage, enemiesType.points, enemiesType.direction);

@@ -18,6 +18,32 @@ public abstract class AbstractActors {
 		this.image = pImage;
 		this.speed = pSpeed;
 	}
+
+	public double getPositionX() {
+		return positionX;
+	}
+
+	public double getPositionY() {
+		return positionY;
+	}
+
+	public int getDimensionX() {
+		return dimensionX;
+	}
+
+	public int getDimensionY() {
+		return dimensionY;
+	}
+
+	public Image getImage() {
+		return image;
+	}
+
+	public double getSpeed() {
+		return speed;
+	}
+
+
 	
 	
 	
