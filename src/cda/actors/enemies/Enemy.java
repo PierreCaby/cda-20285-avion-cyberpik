@@ -15,6 +15,10 @@ public class Enemy extends AbstractActors {
 		this.direction = pDirection;
 	}
 
+	public boolean isDirection() {
+		return direction;
+	}
+
 
 	
 }

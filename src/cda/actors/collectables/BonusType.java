@@ -2,13 +2,14 @@ package cda.actors.collectables;
 
 import java.util.Random;
 
+
 import cda.commons.libs.VisualAsset;
 import javafx.scene.image.Image;
 
 public enum BonusType {
 
-	PROTECTION(Math.random() * 460, 0, 40, 40, new Image(VisualAsset.PROTECTION.getFilePath()), 0.01),
-	ROCKET(Math.random() * 460, 0, 40, 40, new Image(VisualAsset.ROCKET.getFilePath()), 0.01);
+	PROTECTION(Math.random() * 460, -100, 40, 40, new Image(VisualAsset.PROTECTION.getFilePath()), 3.5),
+	ROCKET(Math.random() * 460, -100, 40, 40, new Image(VisualAsset.ROCKET.getFilePath()), 3.5);
 
 	private double positionX;
 	private double positionY;
@@ -23,7 +24,7 @@ public enum BonusType {
 		this.dimensionX = pDimensionX;
 		this.dimensionY = pDimensionY;
 		this.image = pImage;
-		this.speed = pSpeed;
+		this.speed = pSpeed; 
 	}
 
 	private static BonusType randomize() {
@@ -35,9 +36,15 @@ public enum BonusType {
 		}
 	}
 
-	public Bonus create() {
+	public static Bonus create() {
 		BonusType bonusType = randomize();
 		return new Bonus(bonusType.positionX, bonusType.positionY, bonusType.dimensionX, bonusType.dimensionY,
 				bonusType.image, bonusType.speed);
 	}
+
+	public Image getImage() {
+		return image;
+	}
+	
+
 }
