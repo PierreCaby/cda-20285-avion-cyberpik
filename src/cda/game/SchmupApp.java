@@ -1,8 +1,9 @@
 package cda.game;
 
+import cda.commons.Global;
+import cda.screens.AbstractScreen;
+import cda.screens.ScreenFactory;
 import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
@@ -12,22 +13,23 @@ import javafx.stage.Stage;
  *         screens
  */
 public final class SchmupApp extends Application {
-	private static String WIN_TITLE = "Cyberpik Schmup";
-	private static int WIN_HEIGHT = 700;
-	private static int WIN_WIDTH = 600;
 
 	@Override
-	public void start(Stage primaryStage) throws Exception {
+	public void start(Stage window) throws Exception {
 		// Config
-		primaryStage.setTitle(WIN_TITLE);
-		primaryStage.setResizable(false);
+		window.setTitle(Global.SCREEN_TITLE);
+		window.setResizable(false);
 
-		Group root = new Group();
-		// BorderPane root = new BorderPane();
-		Scene scene = new Scene(root, 400, 400);
-
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		// Create the different scene through a factory
+		AbstractScreen menuScreen = ScreenFactory.createScreen(ScreenFactory.MENU_SCREEN, window);
+		window.setScene(menuScreen.getScene());
+		window.show();
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
 	}
 
 }
