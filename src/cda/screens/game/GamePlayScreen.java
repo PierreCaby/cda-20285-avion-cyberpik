@@ -1,28 +1,30 @@
 package cda.screens.game;
 
-public class GamePlayScreen // extends AbstractScreen implements ArtefactsScene
+import cda.screens.AbstractScreen;
+import javafx.stage.Stage;
+
+public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 {
 
 	private BackgroundParallaxScrolling scrolling;
 	private DashBoard dashBoard;
 
-	//private EnemyManager enemyManager = EnemyManager.getInstance();
-	//private CollisionManager collisionManager = CollisionManager.getInstance();
-	
-	// private BonusManager bonusManager =  BonusManager.getInstance();
-	
-	//private Ship ship;
+	// private EnemyManager enemyManager = EnemyManager.getInstance();
+	// private CollisionManager collisionManager = CollisionManager.getInstance();
+
+	// private BonusManager bonusManager = BonusManager.getInstance();
+
+	// private Ship ship;
 
 	// private Blinker msgBlinker;
 	// private SingleExecutor gameOverSoundExecutor;
 
-	public GamePlayScreen()
-	{
-		super();
+	public GamePlayScreen(Stage window) {
+		super(window);
 		scrolling = BackgroundParallaxScrolling.getInstance();
 		// scrolling.init(batch);
 		dashBoard = new DashBoard(this);
-		//ship = new Ship();
+		// ship = new Ship();
 		// ship.addObserver(ShipStateObserver::shipExplosion);
 		// this.createBlinkingMessage();
 		// msgBlinker.hide();
