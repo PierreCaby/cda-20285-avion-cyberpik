@@ -14,6 +14,11 @@ public final class Global
 	 * fade-in/fade-out duration.
 	 */
 	public static final float FADE_SECONDS = 1.5f;
+	
+	/**
+	 * name of the game window.
+	 */
+	public static final String SCREEN_TITLE = "Cyberpik Schmup";
 
 	/**
 	 * width of the playing surface in pixels.
