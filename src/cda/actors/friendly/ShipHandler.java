@@ -71,14 +71,13 @@ public class ShipHandler {
 				int dx = 0, dy = 0;
 
 				if (up)
-					
-					dy -= 3;
+					dy -= 4;
 				if (down)
-					dy += 3;
+					dy += 4;
 				if (left)
-					dx -= 3;
+					dx -= 4;
 				if (right)
-					dx += 3;
+					dx += 4;
 
 				moveShipBy(ship, dx, dy, width, height);
 			}

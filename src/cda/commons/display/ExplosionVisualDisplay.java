@@ -26,7 +26,8 @@ public class ExplosionVisualDisplay extends Application {
 
 		stage.setTitle("Explosion Display");
 		Group root = new Group();
-		Image image = new Image(VisualAsset.EXPLOSION.getFilePath());
+		Image image = new Image(VisualAsset.EXPLOSION_BIG.getFilePath());
+//		Image image = new Image(VisualAsset.EXPLOSION_SMALL.getFilePath());
 
 		final int numberOfFrames = 14; // in image
 		double frameWidth = image.getWidth() / numberOfFrames;

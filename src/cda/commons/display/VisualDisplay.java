@@ -41,23 +41,10 @@ public class VisualDisplay extends Application {
 		Image asteroid = new Image(VisualAsset.ASTEROID_CLASSIC.getFilePath());
 		Image asteroidFire = new Image(VisualAsset.ASTEROID_FIRE.getFilePath());
 		Image asteroidIce = new Image(VisualAsset.ASTEROID_ICE.getFilePath());
+		Image asteroidIceberg = new Image(VisualAsset.ASTEROID_ICEBERG.getFilePath());
 		Image asteroidZigZag = new Image(VisualAsset.ASTEROID_ZIGZAG.getFilePath());
 
-		gc.drawImage(background, 0, 0, canvas.getWidth(), canvas.getHeight());
-		gc.drawImage(shipLeft, canvas.getWidth() / 2 - 140, canvas.getHeight() * 3 / 4, 40, 40);
-		gc.drawImage(ship, canvas.getWidth() / 2 - 60, canvas.getHeight() * 3 / 4, 40, 40);
-		gc.drawImage(shipNoReactor, canvas.getWidth() / 2 + 20, canvas.getHeight() * 3 / 4, 40, 40);
-		gc.drawImage(shipRight, canvas.getWidth() / 2 + 100, canvas.getHeight() * 3 / 4, 40, 40);
-		gc.drawImage(protection, canvas.getWidth() / 2 - 140, canvas.getHeight() /2, 40, 40);
-		gc.drawImage(rocket, canvas.getWidth() / 2 - 60, canvas.getHeight() /2, 40, 40);
-		gc.drawImage(shield, canvas.getWidth() / 2 + 20, canvas.getHeight() /2, 40, 40);
-		gc.drawImage(shoot, canvas.getWidth() / 2 + 100, canvas.getHeight() /2, 10, 20);
-		gc.drawImage(shoot, canvas.getWidth() / 2 + 115, canvas.getHeight() /2, 10, 20);
-		gc.drawImage(asteroid, canvas.getWidth() / 2 - 200, canvas.getHeight() / 4, 40, 40);
-		gc.drawImage(asteroidFire, canvas.getWidth() / 2 - 100, canvas.getHeight() / 4, 60, 60);
-		gc.drawImage(asteroidIce, canvas.getWidth() / 2, canvas.getHeight() / 4, 50, 50);
-		gc.drawImage(asteroidIce, canvas.getWidth() / 2 + 80, canvas.getHeight() / 4, 100, 100);
-		gc.drawImage(asteroidZigZag, canvas.getWidth() / 2 + 200, canvas.getHeight() / 4, 40, 40);
+	
 
 		stage.show();
 		
