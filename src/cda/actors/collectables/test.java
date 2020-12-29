@@ -1,5 +1,6 @@
 package cda.actors.collectables;
 
+import cda.actors.friendly.ShipHandler;
 import cda.actors.managers.BonusManager;
 import cda.actors.managers.EnemiesManager;
 import javafx.application.Application;
@@ -20,6 +21,7 @@ public class test extends Application {
 			Scene scene = new Scene(root, 500, 700);
 			stage.setScene(scene);
 			
+			ShipHandler.shipMove(root);
 			BonusManager.bonusCreate(root);
 			EnemiesManager.enemiesCreate(root);
 
