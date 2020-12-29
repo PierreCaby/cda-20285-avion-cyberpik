@@ -8,8 +8,8 @@ import javafx.scene.image.Image;
 
 public enum BonusType {
 
-	PROTECTION(Math.random() * 460, -100, 40, 40, new Image(VisualAsset.PROTECTION.getFilePath()), 3.5),
-	ROCKET(Math.random() * 460, -100, 40, 40, new Image(VisualAsset.ROCKET.getFilePath()), 3.5);
+	PROTECTION(Math.random() * 460, -100, 40, 40, new Image(VisualAsset.PROTECTION.getFilePath()), 4.5),
+	ROCKET(Math.random() * 460, -100, 40, 40, new Image(VisualAsset.ROCKET.getFilePath()), 4.5);
 
 	private double positionX;
 	private double positionY;

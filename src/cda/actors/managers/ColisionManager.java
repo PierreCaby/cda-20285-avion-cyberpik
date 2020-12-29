@@ -1,7 +1,11 @@
 package cda.actors.managers;
 
-import java.util.Random;
+import cda.actors.collectables.Bonus;
+import cda.actors.friendly.Ship;
 
 public class ColisionManager {
 
+//	public boolean isCollidingBonus(Ship pShip, Bonus pBonus) {
+//        return	pShip.getImage().getBoundsInParent().intersects(pBonus.getImage().getBoundsInParent());
+//    }
 }
