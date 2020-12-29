@@ -12,7 +12,7 @@ public enum EnemiesType {
 	ASTEROID_FIRE(Math.random()*440, -100, 60, 60, new Image(VisualAsset.ASTEROID_FIRE.getFilePath()), 4, 2, 2, false),
 	ASTEROID_ICE(Math.random()*450, -100, 50, 50, new Image(VisualAsset.ASTEROID_ICE.getFilePath()), 3.5, 2, 3, false),
 	ASTEROID_ICEBERG(Math.random()*400, -100, 100, 100, new Image(VisualAsset.ASTEROID_ICE.getFilePath()), 3.5, 4, 5, false),
-	ASTEROID_ZIGZAG(100 + Math.random()*360, -100, 40, 40, new Image(VisualAsset.ASTEROID_ZIGZAG.getFilePath()), 4, 2, 2, true);
+	ASTEROID_ZIGZAG(100 + Math.random()*360, -100, 40, 40, new Image(VisualAsset.ASTEROID_ZIGZAG.getFilePath()), 5.5, 2, 2, true);
 	
 	private double positionX;
 	private double positionY;
