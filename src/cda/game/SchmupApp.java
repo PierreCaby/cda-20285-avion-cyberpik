@@ -7,10 +7,12 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
- * @author Valentin
  *
- *         Generate the main window and the main loop, load the different
- *         screens
+ * Generate the main window and the main loop, load the different
+ * screens
+ *
+ * @author Valentin
+ * 
  */
 public final class SchmupApp extends Application {
 

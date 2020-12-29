@@ -23,12 +23,12 @@ public final class Global
 	/**
 	 * width of the playing surface in pixels.
 	 */
-	public static final int SCREEN_WIDTH = 1024;
+	public static final int SCREEN_WIDTH = 700;
 
 	/**
 	 * height of the playing surface in pixels.
 	 */
-	public static final int SCREEN_HEIGHT = 768;
+	public static final int SCREEN_HEIGHT = 800;
 
 	/**
 	 * maximum speed of movement of the ship.
