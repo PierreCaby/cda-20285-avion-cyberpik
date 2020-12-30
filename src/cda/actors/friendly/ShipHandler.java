@@ -4,7 +4,6 @@ import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 
 public class ShipHandler {
@@ -14,16 +13,19 @@ public class ShipHandler {
 	private static boolean left;
 	private static boolean right;
 	
-	public static void shipMove(Group pRoot) {
-
-		Node ship = new ImageView(ShipView.SHIP.getImage());		
-
+	public static Ship shipMove(Group pRoot) {
 		final double width = pRoot.getScene().getWidth();
 		final double height = pRoot.getScene().getHeight();
+		
+		Ship ship = new Ship(64, 64, width/2, height/2, ShipView.SHIP.getImage(), 4, true, false, false, 5);
+		
+		Node nodeShip = ship.getNode();		
 
-		pRoot.getChildren().add(ship);
 
-		moveShipTo(ship, width / 2, height / 2, width, height);
+
+		pRoot.getChildren().add(nodeShip);
+
+		moveShipTo(nodeShip, width / 2, height / 2, width, height);
 
 		pRoot.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
@@ -79,10 +81,11 @@ public class ShipHandler {
 				if (right)
 					dx += 4;
 
-				moveShipBy(ship, dx, dy, width, height);
+				moveShipBy(nodeShip, dx, dy, width, height);
 			}
 		};
 		timer.start();
+		return ship;
 	}
 
 	private static void moveShipBy(Node pShip, int dx, int dy, double pWidth, double pHeight) {
