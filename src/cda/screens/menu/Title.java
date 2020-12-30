@@ -7,6 +7,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+
+/**
+ * 
+ * creates the title diplayed on the menu screen.
+ * 
+ * @author Valentin
+ *
+ */
 public class Title extends Pane {
 	private Text text;
 
@@ -14,7 +22,7 @@ public class Title extends Pane {
 		String spreadName = name.replaceAll("\\B|\\b", " "); // put space for each character (including original spaces)
 
 		text = new Text(spreadName);
-		text.setFont(Font.loadFont(FontAsset.FIVE_BY_FIVE.getFilePath(), 48));
+		text.setFont(Font.loadFont(FontAsset.FIVE_BY_FIVE.getFilePath(), 36));
 		text.setFill(Color.WHITE);
 		text.setEffect(new DropShadow(30, Color.BLACK));
 

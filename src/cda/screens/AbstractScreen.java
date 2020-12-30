@@ -1,14 +1,12 @@
 package cda.screens;
 
-import cda.commons.Global;
-import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public abstract class AbstractScreen {
 	protected Stage window;
-	protected Parent root;
+	protected Pane root;
 	protected Scene scene;
 	
 	// private static final ControllerAdapter<GameControls> userInput = new
@@ -18,11 +16,13 @@ public abstract class AbstractScreen {
 
 	public AbstractScreen(Stage window) {
 		this.window = window;
-		this.root = new Group();
-		this.scene = new Scene(root, Global.SCREEN_WIDTH, Global.SCREEN_HEIGHT);
 	}
 
 	public Scene getScene() {
 		return scene;
+	}
+
+	public Pane getRoot() {
+		return root;
 	}
 }
