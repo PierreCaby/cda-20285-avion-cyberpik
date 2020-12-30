@@ -17,14 +17,9 @@ import javafx.util.Duration;
 
 public class EnemiesManager {
 
-	public static void enemiesCreate(Group pRoot) {
+	public static Enemy enemiesCreate(Group pRoot) {
 		Enemy enemy = EnemiesType.create();
-//		Circle cc = new Circle(enemy.getPositionX(), enemy.getPositionY(), enemy.getDimensionX() / 2, Color.RED);
-		Image imageEnemy = enemy.getImage();
-	
-		System.out.println(imageEnemy.getHeight());
-		Node nodeEnemy =  new ImageView(imageEnemy);
-//		nodeEnemy.resize(enemy.getDimensionX(), enemy.getDimensionY());
+		Node nodeEnemy =  enemy.getNode();
         nodeEnemy.setTranslateX(enemy.getPositionX());
 		nodeEnemy.setTranslateY(enemy.getPositionY());
 
@@ -49,5 +44,6 @@ public class EnemiesManager {
 			tt.setToY(pRoot.getScene().getHeight() + 200);
 			tt.play();
 		}
+		return enemy;
 	}
 }

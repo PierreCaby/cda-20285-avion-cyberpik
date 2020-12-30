@@ -3,28 +3,31 @@ package cda.actors.enemies;
 import java.util.Random;
 
 import cda.commons.libs.VisualAsset;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public enum EnemiesType {
 	
 
-	ASTEROID(Math.random()*450, -100, 50, 50, new Image(VisualAsset.ASTEROID_CLASSIC.getFilePath()), 4, 1, 1, false),
-	ASTEROID_FIRE(Math.random()*430, -100, 70, 70, new Image(VisualAsset.ASTEROID_FIRE.getFilePath()), 4.5, 2, 2, false),
-	ASTEROID_ICE(Math.random()*440, -100, 60, 60, new Image(VisualAsset.ASTEROID_ICE.getFilePath()), 4, 2, 3, false),
-	ASTEROID_ICEBERG(Math.random()*380, -120, 100, 100, new Image(VisualAsset.ASTEROID_ICEBERG.getFilePath()), 4, 4, 5, false),
-	ASTEROID_ZIGZAG(100 + Math.random()*350, -120, 50, 50, new Image(VisualAsset.ASTEROID_ZIGZAG.getFilePath()), 5, 2, 2, true);
+	ASTEROID(Math.random()*450, -100, 50, 50, new Image(VisualAsset.ASTEROID_CLASSIC.getFilePath()), 4, true, 1, 1, false),
+	ASTEROID_FIRE(Math.random()*430, -100, 70, 70, new Image(VisualAsset.ASTEROID_FIRE.getFilePath()), 4.5, true, 2, 2, false),
+	ASTEROID_ICE(Math.random()*440, -100, 60, 60, new Image(VisualAsset.ASTEROID_ICE.getFilePath()), 4, true, 2, 3, false),
+	ASTEROID_ICEBERG(Math.random()*380, -120, 100, 100, new Image(VisualAsset.ASTEROID_ICEBERG.getFilePath()), 4, true, 4, 5, false),
+	ASTEROID_ZIGZAG(100 + Math.random()*350, -120, 50, 50, new Image(VisualAsset.ASTEROID_ZIGZAG.getFilePath()), 5, true, 2, 2, true);
 	
 	private double positionX;
 	private double positionY;
-	private int dimensionX;
-	private int dimensionY;
+	private double dimensionX;
+	private double dimensionY;
 	private Image image;
 	private double speed;
+	private boolean isAlive;
 	private int damage;
 	private int points;
 	private boolean direction;
 	
-	EnemiesType(double pPositionX, double pPositionY, int pDimensionX, int pDimensionY, Image pImage, double pSpeed, int pDamage, int pPoints, boolean pDirection) {
+	EnemiesType(double pPositionX, double pPositionY, double pDimensionX, double pDimensionY, Image pImage, double pSpeed, boolean isAlive, int pDamage, int pPoints, boolean pDirection) {
 		this.positionX = pPositionX;
 		this.positionY = pPositionY;
 		this.dimensionX = pDimensionX;
@@ -59,7 +62,7 @@ public enum EnemiesType {
 	public static Enemy create() {
 		EnemiesType enemiesType = randomize();
 		return new Enemy(enemiesType.positionX, enemiesType.positionY, enemiesType.dimensionX, enemiesType.dimensionY,
-				enemiesType.image, enemiesType.speed, enemiesType.damage, enemiesType.points, enemiesType.direction);
+				enemiesType.image, enemiesType.speed, enemiesType.isAlive, enemiesType.damage, enemiesType.points, enemiesType.direction);
 	}
 	
 }

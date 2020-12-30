@@ -12,9 +12,10 @@ import javafx.util.Duration;
 
 public class BonusManager {
 	
-	public static void bonusCreate(Group pRoot) {
+	public static Bonus bonusCreate(Group pRoot) {
 		Bonus bonus = BonusType.create();
-		Node nodeBonus = new ImageView(bonus.getImage());
+		Bonus.addBonus(bonus);
+		Node nodeBonus = bonus.getNode();
 		nodeBonus.setTranslateX(bonus.getPositionX());
 		nodeBonus.setTranslateY(bonus.getPositionY());
 
@@ -24,5 +25,7 @@ public class BonusManager {
 		tt.setFromY(bonus.getPositionY());
 		tt.setToY(pRoot.getScene().getHeight() + 200);
 		tt.play();
+		return bonus;
 	}
+	
 }
