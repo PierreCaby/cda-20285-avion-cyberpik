@@ -6,18 +6,19 @@ import java.util.Random;
 import cda.actors.AbstractActors;
 import cda.actors.collectables.Bonus;
 import javafx.scene.Group;
+import javafx.scene.layout.Pane;
 
 public class ActorsGenerator {
 
 private static ArrayList<AbstractActors> actors = new ArrayList<>();
 
-	public void actorsGenerator(Group pRoot) {
+	public void actorsGenerator(Pane pRoot) {
 		if (actors.size() < 4) {
 			actors.add(actorsCreate(pRoot));
 		}
 	}
 
-	public static AbstractActors actorsCreate(Group pRoot) {
+	public static AbstractActors actorsCreate(Pane pRoot) {
 		Random rand = new Random();
 		if (rand.nextInt(10) == 0) {
 			return BonusManager.bonusCreate(pRoot);

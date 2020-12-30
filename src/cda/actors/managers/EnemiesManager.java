@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.LineTo;
@@ -17,14 +18,15 @@ import javafx.util.Duration;
 
 public class EnemiesManager {
 
-	public static Enemy enemiesCreate(Group pRoot) {
+	public static Enemy enemiesCreate(Pane root) {
 		Enemy enemy = EnemiesType.create();
+		Enemy.addEnemy(enemy);
 		Node nodeEnemy =  enemy.getNode();
         nodeEnemy.setTranslateX(enemy.getPositionX());
 		nodeEnemy.setTranslateY(enemy.getPositionY());
 
 		
-		pRoot.getChildren().add(nodeEnemy);
+		root.getChildren().add(nodeEnemy);
 
 		if (enemy.isDirection()) {
 			Path path = new Path();
@@ -41,7 +43,7 @@ public class EnemiesManager {
 		} else {
 			TranslateTransition tt = new TranslateTransition(Duration.seconds(enemy.getSpeed()), nodeEnemy);
 			tt.setFromY(enemy.getPositionY());
-			tt.setToY(pRoot.getScene().getHeight() + 200);
+			tt.setToY(root.getScene().getHeight() + 200);
 			tt.play();
 		}
 		return enemy;

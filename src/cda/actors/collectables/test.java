@@ -11,6 +11,7 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class test extends Application {
@@ -22,13 +23,12 @@ public class test extends Application {
 	public void start(Stage stage) throws Exception {
 		try {
 
-			Group root = new Group();
+			Pane root = new Pane();
 			Scene scene = new Scene(root, 500, 700);
 			stage.setScene(scene);
 			
 			
 			Ship ship = ShipHandler.shipMove(root);
-			Ship.setShip(ship);
 			Bonus bonus = BonusManager.bonusCreate(root);
 			Enemy enemy = EnemiesManager.enemiesCreate(root);
 			
@@ -37,6 +37,7 @@ public class test extends Application {
 				@Override
 				public void handle(long now) {
 					ColisionManager.checkBonusColision();
+					ColisionManager.checkEnemyColision();
 					
 				}
 			};

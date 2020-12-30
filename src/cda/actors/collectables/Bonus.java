@@ -30,8 +30,4 @@ public class Bonus extends AbstractActors{
 		bonus.remove(0);
 	}
 
-	
-
-	
-	
 }

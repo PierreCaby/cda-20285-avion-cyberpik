@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
 
 public class ShipHandler {
 
@@ -13,21 +14,21 @@ public class ShipHandler {
 	private static boolean left;
 	private static boolean right;
 	
-	public static Ship shipMove(Group pRoot) {
-		final double width = pRoot.getScene().getWidth();
-		final double height = pRoot.getScene().getHeight();
+	public static Ship shipMove(Pane root) {
+		final double width = root.getScene().getWidth();
+		final double height = root.getScene().getHeight();
 		
 		Ship ship = new Ship(64, 64, width/2, height/2, ShipView.SHIP.getImage(), 4, true, false, false, 5);
-		
+		Ship.setShip(ship);
 		Node nodeShip = ship.getNode();		
 
 
 
-		pRoot.getChildren().add(nodeShip);
+		root.getChildren().add(nodeShip);
 
 		moveShipTo(nodeShip, width / 2, height / 2, width, height);
 
-		pRoot.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
+		root.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
 				switch (event.getCode()) {
@@ -47,7 +48,7 @@ public class ShipHandler {
 			}
 		});
 
-		pRoot.getScene().setOnKeyReleased(new EventHandler<KeyEvent>() {
+		root.getScene().setOnKeyReleased(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
 				switch (event.getCode()) {
