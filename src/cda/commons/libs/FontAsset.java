@@ -9,7 +9,7 @@ public enum FontAsset {
 	private final String filePath;
 
 	FontAsset(String pFileName) {
-		this.filePath = new File("assets/font" + pFileName).toURI().toString();
+		this.filePath = new File("assets/font/" + pFileName).toURI().toString();
 	}
 
 	public String getFilePath() {

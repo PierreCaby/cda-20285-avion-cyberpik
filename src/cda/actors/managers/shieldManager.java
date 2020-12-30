@@ -1,5 +1,5 @@
 package cda.actors.managers;
 
-public class ProjectileManager {
+public class shieldManager {
 
 }

@@ -2,7 +2,10 @@ package cda.actors.managers;
 
 import cda.actors.AbstractActors;
 import cda.actors.collectables.Bonus;
+import cda.actors.enemies.EnemiesType;
+import cda.actors.enemies.Enemy;
 import cda.actors.friendly.Ship;
+import cda.commons.display.ExplosionDisplay;
 
 public class ColisionManager {
 
@@ -28,4 +31,24 @@ public class ColisionManager {
 		System.out.println(ship.isShoot());
 	}
 
+	public static void checkEnemyColision() {
+		Ship ship = Ship.getShip();
+		for (Enemy enemy : Enemy.getEnemies()) {
+		if (isColliding(Ship.getShip(), enemy)) {
+				System.out.println("oh yeaahhhh");
+//				ExplosionDisplay.explosionDisplay(pRoot, enemy);
+
+				enemy.setAlive(false);
+				
+//				if (enemy) {
+//					Ship.getShip().setShoot(true);
+//				} else {
+//					Ship.getShip().setShoot(true);
+//				}
+			}
+		}
+		System.out.println(ship.isShield());
+		System.out.println(ship.isShoot());
+	}
+	
 }
