@@ -28,7 +28,7 @@ public class test extends Application {
 			stage.setScene(scene);
 			
 			
-			Ship ship = ShipHandler.shipMove(root);
+			Ship ship = ShipHandler.shipMove();
 			Bonus bonus = BonusManager.bonusCreate(root);
 			Enemy enemy = EnemiesManager.enemiesCreate(root);
 			

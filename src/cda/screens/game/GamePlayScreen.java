@@ -1,6 +1,7 @@
 package cda.screens.game;
 
 import cda.screens.AbstractScreen;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
@@ -24,6 +25,11 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 		scrolling = BackgroundParallaxScrolling.getInstance();
 		// scrolling.init(batch);
 		dashBoard = new DashBoard(this);
+		
+		Pane root = new Pane();
+		setRoot(root);
+		
+		
 		// ship = new Ship();
 		// ship.addObserver(ShipStateObserver::shipExplosion);
 		// this.createBlinkingMessage();

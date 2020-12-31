@@ -1,5 +1,6 @@
 package cda.actors.friendly;
 
+import cda.screens.game.GamePlayScreen;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -14,7 +15,8 @@ public class ShipHandler {
 	private static boolean left;
 	private static boolean right;
 	
-	public static Ship shipMove(Pane root) {
+	public static Ship shipMove() {
+		Pane root = GamePlayScreen.getRoot();
 		final double width = root.getScene().getWidth();
 		final double height = root.getScene().getHeight();
 		
