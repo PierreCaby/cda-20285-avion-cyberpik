@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 
 public abstract class AbstractScreen {
 	protected Stage window;
-	protected Pane root;
+	protected static Pane root;
 	protected Scene scene;
 	
 	// private static final ControllerAdapter<GameControls> userInput = new
@@ -22,7 +22,13 @@ public abstract class AbstractScreen {
 		return scene;
 	}
 
-	public Pane getRoot() {
+	public static Pane getRoot() {
 		return root;
 	}
+
+	public static void setRoot(Pane pRoot) {
+		root = pRoot;
+	}
+	
+	
 }
