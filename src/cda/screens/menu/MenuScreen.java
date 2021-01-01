@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import cda.commons.Global;
+import cda.commons.libs.MusicAsset;
 import cda.commons.libs.VisualAsset;
 import cda.screens.AbstractScreen;
 import javafx.animation.ScaleTransition;
@@ -44,6 +45,7 @@ public class MenuScreen extends AbstractScreen {
     private Parent createContent() {
         addBackground();
         addTitle();
+        playMusic(MusicAsset.STARTER_MENU);
 
         double lineX = Global.SCREEN_WIDTH / 2 - 100;
         double lineY = Global.SCREEN_HEIGHT / 3 + 50;
