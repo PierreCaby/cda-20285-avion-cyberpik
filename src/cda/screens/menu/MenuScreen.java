@@ -74,7 +74,7 @@ public class MenuScreen extends AbstractScreen {
     }
 
     private void addLine(double x, double y) {
-        line = new Line(x, y, x, y + 300);
+        line = new Line(x, y, x, y + 125);
         line.setStrokeWidth(3);
         line.setStroke(Color.color(1, 1, 1, 0.75));
         line.setEffect(new DropShadow(5, Color.BLACK));
