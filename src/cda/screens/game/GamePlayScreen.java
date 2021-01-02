@@ -1,16 +1,19 @@
 package cda.screens.game;
 
-import cda.actors.collectables.Bonus;
 import cda.actors.enemies.Enemy;
 import cda.actors.friendly.Ship;
 import cda.actors.friendly.ShipHandler;
-import cda.actors.managers.BonusManager;
+import cda.actors.managers.ActorsGenerator;
 import cda.actors.managers.ColisionManager;
-import cda.actors.managers.EnemiesManager;
+import cda.actors.managers.ScoreManager;
+import cda.commons.Global;
 import cda.commons.libs.MusicAsset;
+import cda.commons.libs.VisualAsset;
 import cda.screens.AbstractScreen;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -22,20 +25,17 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 
 	public GamePlayScreen(Stage window) {
 		super(window);
-//		scrolling = BackgroundParallaxScrolling.getInstance();
-//		scrolling.init(batch);
 		dashBoard = new DashBoard(this);
         playMusic(MusicAsset.GAME);
 
 		
 		Pane root = new Pane();
 		setRoot(root);
-		this.scene = new Scene(root, 500, 700);
+		this.scene = new Scene(root, Global.SCREEN_WIDTH, Global.SCREEN_HEIGHT);
 		window.setScene(scene);
 		
 		Ship ship = ShipHandler.shipMove();
-		Bonus bonus = BonusManager.bonusCreate();
-		Enemy enemy = EnemiesManager.enemiesCreate();
+		ActorsGenerator.actorsCreate();
 		
 		AnimationTimer time = new AnimationTimer() {
 			
@@ -43,11 +43,26 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 			public void handle(long now) {
 				ColisionManager.checkBonusColision();
 				ColisionManager.checkEnemyColision();
-				
+				ScoreManager.scoreCalculator();
 			}
 		};
 		time.start();
 		
 	
 	}
+	
+	 private void createContent() {
+	        addBackground();
+	        playMusic(MusicAsset.STARTER_MENU);
+	 }
+	 
+	  
+	
+    private void addBackground() {
+        ImageView imageView = new ImageView(new Image(VisualAsset.SKY_BACKGROUND.getFilePath()));
+        imageView.setFitWidth(Global.SCREEN_WIDTH);
+        imageView.setFitHeight(Global.SCREEN_HEIGHT);
+        
+        root.getChildren().add(imageView);
+    }
 }

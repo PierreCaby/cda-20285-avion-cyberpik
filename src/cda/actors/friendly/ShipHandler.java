@@ -3,7 +3,6 @@ package cda.actors.friendly;
 import cda.screens.game.GamePlayScreen;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -76,13 +75,13 @@ public class ShipHandler {
 				int dx = 0, dy = 0;
 
 				if (up)
-					dy -= 4;
+					dy -= 5;
 				if (down)
-					dy += 4;
+					dy += 5;
 				if (left)
-					dx -= 4;
+					dx -= 5;
 				if (right)
-					dx += 4;
+					dx += 5;
 
 				moveShipBy(nodeShip, dx, dy, width, height);
 			}

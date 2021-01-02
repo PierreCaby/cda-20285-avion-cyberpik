@@ -2,19 +2,18 @@ package cda.actors.enemies;
 
 import java.util.Random;
 
+import cda.commons.Global;
 import cda.commons.libs.VisualAsset;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 public enum EnemiesType {
 	
 
-	ASTEROID(Math.random()*450, -100, 50, 50, new Image(VisualAsset.ASTEROID_CLASSIC.getFilePath()), 4, true, 1, 1, false),
-	ASTEROID_FIRE(Math.random()*430, -100, 70, 70, new Image(VisualAsset.ASTEROID_FIRE.getFilePath()), 4.5, true, 2, 2, false),
-	ASTEROID_ICE(Math.random()*440, -100, 60, 60, new Image(VisualAsset.ASTEROID_ICE.getFilePath()), 4, true, 2, 3, false),
-	ASTEROID_ICEBERG(Math.random()*380, -120, 100, 100, new Image(VisualAsset.ASTEROID_ICEBERG.getFilePath()), 4, true, 4, 5, false),
-	ASTEROID_ZIGZAG(100 + Math.random()*350, -120, 50, 50, new Image(VisualAsset.ASTEROID_ZIGZAG.getFilePath()), 5, true, 2, 2, true);
+	ASTEROID(Global.SCREEN_WIDTH -50, -120, 50, 50, new Image(VisualAsset.ASTEROID_CLASSIC.getFilePath()), 4, true, 1, 1, false),
+	ASTEROID_FIRE(Global.SCREEN_WIDTH - 70, -120, 70, 70, new Image(VisualAsset.ASTEROID_FIRE.getFilePath()), 4.5, true, 2, 2, false),
+	ASTEROID_ICE(Global.SCREEN_WIDTH - 60, -120, 60, 60, new Image(VisualAsset.ASTEROID_ICE.getFilePath()), 4, true, 2, 3, false),
+	ASTEROID_ICEBERG(Global.SCREEN_WIDTH - 120, -120, 120, 120, new Image(VisualAsset.ASTEROID_ICEBERG.getFilePath()), 4, true, 4, 5, false),
+	ASTEROID_ZIGZAG(Global.SCREEN_WIDTH - 250, -120, 50, 50, new Image(VisualAsset.ASTEROID_ZIGZAG.getFilePath()), 5, true, 2, 2, true);
 	
 	private double positionX;
 	private double positionY;
@@ -62,7 +61,7 @@ public enum EnemiesType {
 	
 	public static Enemy create() {
 		EnemiesType enemiesType = randomize();
-		return new Enemy(enemiesType.positionX, enemiesType.positionY, enemiesType.dimensionX, enemiesType.dimensionY,
+		return new Enemy(Math.random()*enemiesType.positionX, enemiesType.positionY, enemiesType.dimensionX, enemiesType.dimensionY,
 				enemiesType.image, enemiesType.speed, enemiesType.isAlive, enemiesType.damage, enemiesType.points, enemiesType.direction);
 	}
 	

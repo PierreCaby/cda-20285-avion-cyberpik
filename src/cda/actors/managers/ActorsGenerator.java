@@ -4,40 +4,40 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import cda.actors.AbstractActors;
-import cda.actors.collectables.Bonus;
-import javafx.scene.Group;
+import cda.screens.game.GamePlayScreen;
+import javafx.animation.AnimationTimer;
 import javafx.scene.layout.Pane;
 
 public class ActorsGenerator {
 
-private static ArrayList<AbstractActors> actors = new ArrayList<>();
+	private static ArrayList<AbstractActors> actors = new ArrayList<>();
 
-	public void actorsGenerator(Pane pRoot) {
-		if (actors.size() < 4) {
-			actors.add(actorsCreate(pRoot));
-		}
-	}
+	public static void actorsCreate() {
+		Pane root = GamePlayScreen.getRoot();
+		AnimationTimer animationTimer = new AnimationTimer() {
+			private long update = 0;
+			@Override
+			public void handle(long now) {
+				if (now - update >= 999999999) {
+					Random rand = new Random();
+					if (rand.nextInt(20) == 0) {
+						BonusManager.bonusCreate();
+					} else {
+						EnemiesManager.enemiesCreate();
+					}                   
+					update = now ;
+                }
+				
+			}
+			
+		};
+	
+		animationTimer.start();
 
-	public static AbstractActors actorsCreate(Pane pRoot) {
-		Random rand = new Random();
-		if (rand.nextInt(10) == 0) {
-			return BonusManager.bonusCreate();
-		} else {
-			return EnemiesManager.enemiesCreate();
-		}
 	}
 
 	public static ArrayList<AbstractActors> getActors() {
 		return actors;
 	}
 
-	public static void addBonus(Bonus pBonus) {
-		actors.add(pBonus);
-	}
-	
-	public static void removeBonus() {
-		actors.remove(0);
-	}
-
-	
 }

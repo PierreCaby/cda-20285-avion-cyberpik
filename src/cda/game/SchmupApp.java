@@ -15,7 +15,7 @@ import javafx.stage.Stage;
  * 
  */
 public final class SchmupApp extends Application {
-
+	
 	@Override
 	public void start(Stage window) throws Exception {
 		// Config
