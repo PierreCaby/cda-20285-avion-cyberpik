@@ -6,6 +6,7 @@ import java.util.List;
 import cda.commons.Global;
 import cda.commons.libs.MusicAsset;
 import cda.commons.libs.VisualAsset;
+import cda.game.SchmupApp;
 import cda.screens.AbstractScreen;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
@@ -37,7 +38,7 @@ public class MenuScreen extends AbstractScreen {
 	}
 	
     private List<Pair<String, Runnable>> menuData = Arrays.asList(
-            new Pair<String, Runnable>("Single Player", () -> {}),
+            new Pair<String, Runnable>("Single Player", () -> window.setScene(SchmupApp.getGamePlayScreen().getScene())),
             new Pair<String, Runnable>("ScoreBoard", () -> {}),
             new Pair<String, Runnable>("Exit to Desktop", Platform::exit)
     );
