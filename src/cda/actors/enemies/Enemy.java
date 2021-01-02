@@ -44,6 +44,5 @@ public class Enemy extends AbstractActors {
 		return direction;
 	}
 
-
 	
 }

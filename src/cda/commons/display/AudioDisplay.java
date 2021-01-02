@@ -28,7 +28,7 @@ public class AudioDisplay extends Application {
 //		SoundEffectAsset.play(SoundEffectAsset.LOST_GAME);
 //		SoundEffectAsset.play(SoundEffectAsset.LOST_LIFE);
 //		SoundEffectAsset.play(SoundEffectAsset.NEW_HIGHSCORE);
-//		SoundEffectAsset.play(SoundEffectAsset.SHIELD);
+//		SoundEffectAsset.play(SoundEffectAsset.BONUS);
 //		SoundEffectAsset.play(SoundEffectAsset.SHOT);	
 	}
 

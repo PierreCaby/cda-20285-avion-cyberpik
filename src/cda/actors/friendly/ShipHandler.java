@@ -20,7 +20,7 @@ public class ShipHandler {
 		final double width = root.getScene().getWidth();
 		final double height = root.getScene().getHeight();
 		
-		Ship ship = new Ship(64, 64, width/2, height/2, ShipView.SHIP.getImage(), 4, true, false, false, 5);
+		Ship ship = new Ship(64, 64, width/2, height/2, ShipView.SHIP.getImage(), 4, true, false, false, 5, 0);
 		Ship.setShip(ship);
 		Node nodeShip = ship.getNode();		
 

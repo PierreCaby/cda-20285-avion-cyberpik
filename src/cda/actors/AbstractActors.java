@@ -62,5 +62,11 @@ public abstract class AbstractActors {
 	}
 	
 	
+	public void destroy() {
+		this.setAlive(false);
+		this.getNode().setVisible(false);
+	}
+	
+	
 	
 }
