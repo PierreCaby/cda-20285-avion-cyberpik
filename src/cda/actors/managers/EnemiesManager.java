@@ -5,13 +5,8 @@ import cda.actors.enemies.Enemy;
 import cda.screens.game.GamePlayScreen;
 import javafx.animation.PathTransition;
 import javafx.animation.TranslateTransition;
-import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
@@ -19,7 +14,7 @@ import javafx.util.Duration;
 
 public class EnemiesManager {
 
-	public static Enemy enemiesCreate() {
+	public static void enemiesCreate() {
 		Pane root = GamePlayScreen.getRoot();
 		Enemy enemy = EnemiesType.create();
 		Enemy.addEnemy(enemy);
@@ -33,11 +28,12 @@ public class EnemiesManager {
 		if (enemy.isDirection()) {
 			Path path = new Path();
 			path.getElements().addAll(new MoveTo(enemy.getPositionX(), enemy.getPositionY()),
-					new LineTo(enemy.getPositionX() + 100, enemy.getPositionY() + 100),
-					new LineTo(enemy.getPositionX() - 100, enemy.getPositionY() + 300),
-					new LineTo(enemy.getPositionX() + 100, enemy.getPositionY() + 500),
-					new LineTo(enemy.getPositionX() - 100, enemy.getPositionY() + 700),
-					new LineTo(enemy.getPositionX() + 100, enemy.getPositionY() + 900));
+					new LineTo(enemy.getPositionX() + 200, enemy.getPositionY() + 100),
+					new LineTo(enemy.getPositionX(), enemy.getPositionY() + 300),
+					new LineTo(enemy.getPositionX() + 200, enemy.getPositionY() + 500),
+					new LineTo(enemy.getPositionX(), enemy.getPositionY() + 700),
+					new LineTo(enemy.getPositionX() + 200, enemy.getPositionY() + 900),
+					new LineTo(enemy.getPositionX(), enemy.getPositionY() + 1100));
 
 			PathTransition pt = new PathTransition(Duration.seconds(enemy.getSpeed()), path, nodeEnemy);
 			pt.play();
@@ -48,6 +44,5 @@ public class EnemiesManager {
 			tt.setToY(root.getScene().getHeight() + 200);
 			tt.play();
 		}
-		return enemy;
 	}
 }

@@ -1,7 +1,6 @@
 package cda.commons.display;
 
 import cda.actors.AbstractActors;
-import cda.commons.libs.SoundEffectAsset;
 import cda.commons.libs.VisualAsset;
 import cda.screens.game.GamePlayScreen;
 import javafx.animation.Interpolator;

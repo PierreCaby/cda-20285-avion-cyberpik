@@ -3,7 +3,6 @@ package cda.actors.enemies;
 import java.util.ArrayList;
 
 import cda.actors.AbstractActors;
-import cda.actors.collectables.Bonus;
 import javafx.scene.image.Image;
 
 public class Enemy extends AbstractActors {
@@ -21,8 +20,8 @@ public class Enemy extends AbstractActors {
 		enemies.add(pEnemy);
 	}
 	
-	public static void removeEnemy() {
-		enemies.remove(0);
+	public static void removeEnemy(Enemy pEnemy) {
+		enemies.remove(pEnemy);
 	}
 
 	public int getDamage() {

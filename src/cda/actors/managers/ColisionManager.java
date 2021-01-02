@@ -2,7 +2,6 @@ package cda.actors.managers;
 
 import cda.actors.AbstractActors;
 import cda.actors.collectables.Bonus;
-import cda.actors.enemies.EnemiesType;
 import cda.actors.enemies.Enemy;
 import cda.actors.friendly.Ship;
 import cda.commons.display.ExplosionDisplay;
@@ -13,7 +12,8 @@ import javafx.scene.layout.Pane;
 public class ColisionManager {
 
 	private static boolean isColliding(Ship pShip, AbstractActors pActor) {
-		while (pActor.isAlive()) {
+		while (pShip.isAlive() && pActor.isAlive()) {
+//			System.out.println(pShip.getNode().getBoundsInParent().getMinY());
 			return pShip.getNode().getBoundsInParent().intersects(pActor.getNode().getBoundsInParent());
 		}
 		return false;
@@ -23,7 +23,6 @@ public class ColisionManager {
 		Ship ship = Ship.getShip();
 		for (Bonus bonus : Bonus.getBonus()) {
 			if (isColliding(Ship.getShip(), bonus)) {
-				System.out.println("oh yeaahhhh");
 				bonus.setAlive(false);
 				if (bonus.isAttack()) {
 					Ship.getShip().setShoot(true);
@@ -35,8 +34,7 @@ public class ColisionManager {
 				bonus.destroy();
 			}
 		}
-//		System.out.println(ship.isShield());
-//		System.out.println(ship.isShoot());
+
 	}
 
 	public static void checkEnemyColision() {
@@ -44,7 +42,6 @@ public class ColisionManager {
 		Ship ship = Ship.getShip();
 		for (Enemy enemy : Enemy.getEnemies()) {
 			if (isColliding(Ship.getShip(), enemy)) {
-				System.out.println("oh yeaahhhh");
 				ExplosionDisplay.explosionDisplay(enemy);
 				ship.decreaseLife(enemy.getDamage());
 				System.out.println(ship.getLifeCount());

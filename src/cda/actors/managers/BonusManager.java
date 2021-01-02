@@ -4,17 +4,13 @@ import cda.actors.collectables.Bonus;
 import cda.actors.collectables.BonusType;
 import cda.screens.game.GamePlayScreen;
 import javafx.animation.TranslateTransition;
-import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
 public class BonusManager {
 	
-	public static Bonus bonusCreate() {
+	public static void bonusCreate() {
 		Pane root = GamePlayScreen.getRoot();
 		Bonus bonus = BonusType.create();
 		Bonus.addBonus(bonus);
@@ -28,7 +24,6 @@ public class BonusManager {
 		tt.setFromY(bonus.getPositionY());
 		tt.setToY(root.getScene().getHeight() + 200);
 		tt.play();
-		return bonus;
 	}
 	
 }
