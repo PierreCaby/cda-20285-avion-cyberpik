@@ -21,19 +21,26 @@ public final class SchmupApp extends Application {
 	
 	@Override
 	public void start(Stage window) throws Exception {
-		// Config
-		window.setTitle(Global.SCREEN_TITLE);
-		window.setResizable(false);
+		configurePrimaryStage(window);
+		createAllScenes(window);
 
-		// Create the different scene through a factory
-		AbstractScreen menuScreen = ScreenFactory.createScreen(ScreenFactory.MENU_SCREEN, window);
-		AbstractScreen gamePlayScreen = ScreenFactory.createScreen(ScreenFactory.GAME_SCREEN, window);
-		AbstractScreen scoreBoardScreen = ScreenFactory.createScreen(ScreenFactory.SCORE_BOARD_SCREEN, window);
-		
-		
 		// Display the menu
 		window.setScene(menuScreen.getScene());
 		window.show();
+	}
+
+	private static void configurePrimaryStage(Stage window) {
+		window.setTitle(Global.SCREEN_TITLE);
+		window.setResizable(false);
+	}
+	
+	/**
+	 * Create the different scenes through a factory
+	 */
+	private static void createAllScenes(Stage window) {
+		menuScreen = ScreenFactory.createScreen(ScreenFactory.MENU_SCREEN, window);
+		gamePlayScreen = ScreenFactory.createScreen(ScreenFactory.GAME_SCREEN, window);
+		// scoreBoardScreen = ScreenFactory.createScreen(ScreenFactory.SCORE_BOARD_SCREEN, window);
 	}
 	
 	public static void main(String[] args) {
