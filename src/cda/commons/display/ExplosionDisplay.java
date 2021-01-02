@@ -1,9 +1,12 @@
 package cda.commons.display;
 
+import cda.actors.AbstractActors;
 import cda.actors.enemies.Enemy;
+import cda.actors.friendly.Ship;
 import cda.actors.managers.EnemiesManager;
 import cda.commons.libs.SoundEffectAsset;
 import cda.commons.libs.VisualAsset;
+import cda.screens.game.GamePlayScreen;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -32,13 +35,14 @@ public class ExplosionDisplay extends Application {
 		Scene scene = new Scene(root, 500, 700);
 		stage.setScene(scene);
 
-		explosionDisplay(root);
+		explosionDisplay(new Ship(0, 0, 0, 0, null, 0, false, false, false, 0));
 
 		stage.show();
 
 	}
 
-	public void explosionDisplay(Pane root) {
+	public static void explosionDisplay(AbstractActors pAbstractActor) {
+		Pane root = GamePlayScreen.getRoot();
 		Image image;
 //		if (pEnemy.getPoints() == 5) {
 //			image = new Image(VisualAsset.EXPLOSION_BIG.getFilePath());

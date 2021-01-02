@@ -23,8 +23,11 @@ public final class SchmupApp extends Application {
 		window.setResizable(false);
 
 		// Create the different scene through a factory
-		AbstractScreen menuScreen = ScreenFactory.createScreen(ScreenFactory.MENU_SCREEN, window);
-		window.setScene(menuScreen.getScene());
+//		AbstractScreen menuScreen = ScreenFactory.createScreen(ScreenFactory.MENU_SCREEN, window);
+		AbstractScreen gamePlayScreen = ScreenFactory.createScreen(ScreenFactory.GAME_SCREEN, window);
+		
+//		window.setScene(menuScreen.getScene());
+		window.setScene(gamePlayScreen.getScene());
 		window.show();
 		
 		
