@@ -12,6 +12,7 @@ public class Bonus extends AbstractActors{
 	
 	public Bonus(double pPositionX, double pPositionY, double pDimensionX, double pDimensionY, Image pImage, double pSpeed, boolean pIsAlive, boolean pAttack) {
 		super(pPositionX, pPositionY, pDimensionX, pDimensionY, pImage, pSpeed, pIsAlive);
+		this.attack = pAttack;
 	}
 
 	public boolean isAttack() {

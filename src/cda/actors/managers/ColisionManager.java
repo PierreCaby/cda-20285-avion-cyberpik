@@ -13,7 +13,6 @@ public class ColisionManager {
 
 	private static boolean isColliding(Ship pShip, AbstractActors pActor) {
 		while (pShip.isAlive() && pActor.isAlive()) {
-//			System.out.println(pShip.getNode().getBoundsInParent().getMinY());
 			return pShip.getNode().getBoundsInParent().intersects(pActor.getNode().getBoundsInParent());
 		}
 		return false;
@@ -24,17 +23,20 @@ public class ColisionManager {
 		for (Bonus bonus : Bonus.getBonus()) {
 			if (isColliding(Ship.getShip(), bonus)) {
 				bonus.setAlive(false);
-				if (bonus.isAttack()) {
+				if (bonus.isAttack()) { 
 					Ship.getShip().setShoot(true);
 					SoundEffectAsset.play(SoundEffectAsset.BONUS);
+					System.out.println("1 " + Ship.getShip().isShield());
+					System.out.println("1 " + Ship.getShip().isShoot());
 				} else {
 					Ship.getShip().setShield(true);
 					SoundEffectAsset.play(SoundEffectAsset.BONUS);
+					System.out.println("2 " + Ship.getShip().isShield());
+					System.out.println("2 " + Ship.getShip().isShoot());
 				}
 				bonus.destroy();
 			}
 		}
-
 	}
 
 	public static void checkEnemyColision() {
@@ -43,7 +45,9 @@ public class ColisionManager {
 		for (Enemy enemy : Enemy.getEnemies()) {
 			if (isColliding(Ship.getShip(), enemy)) {
 				ExplosionDisplay.explosionDisplay(enemy);
-				ship.decreaseLife(enemy.getDamage());
+				if (!ship.isShield()) {					
+					ship.decreaseLife(enemy.getDamage());
+				}
 				System.out.println(ship.getLifeCount());
 				enemy.destroy();
 				SoundEffectAsset.play(SoundEffectAsset.LOST_LIFE);
