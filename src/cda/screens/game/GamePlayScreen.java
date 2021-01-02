@@ -1,6 +1,5 @@
 package cda.screens.game;
 
-import cda.actors.enemies.Enemy;
 import cda.actors.friendly.Ship;
 import cda.actors.friendly.ShipHandler;
 import cda.actors.managers.ActorsGenerator;
@@ -26,10 +25,11 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 	public GamePlayScreen(Stage window) {
 		super(window);
 		dashBoard = new DashBoard(this);
+		
         playMusic(MusicAsset.GAME);
 
 		
-		Pane root = new Pane();
+		Pane root = new Pane(addBackground());
 		setRoot(root);
 		this.scene = new Scene(root, Global.SCREEN_WIDTH, Global.SCREEN_HEIGHT);
 		window.setScene(scene);
@@ -51,18 +51,12 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 	
 	}
 	
-	 private void createContent() {
-	        addBackground();
-	        playMusic(MusicAsset.STARTER_MENU);
-	 }
-	 
 	  
 	
-    private void addBackground() {
+    private ImageView addBackground() {
         ImageView imageView = new ImageView(new Image(VisualAsset.SKY_BACKGROUND.getFilePath()));
         imageView.setFitWidth(Global.SCREEN_WIDTH);
         imageView.setFitHeight(Global.SCREEN_HEIGHT);
-        
-        root.getChildren().add(imageView);
+        return imageView;       
     }
 }
