@@ -27,13 +27,14 @@ public enum EnemiesType {
 	private int points;
 	private boolean direction;
 	
-	EnemiesType(double pPositionX, double pPositionY, double pDimensionX, double pDimensionY, Image pImage, double pSpeed, boolean isAlive, int pDamage, int pPoints, boolean pDirection) {
+	EnemiesType(double pPositionX, double pPositionY, double pDimensionX, double pDimensionY, Image pImage, double pSpeed, boolean pIsAlive, int pDamage, int pPoints, boolean pDirection) {
 		this.positionX = pPositionX;
 		this.positionY = pPositionY;
 		this.dimensionX = pDimensionX;
 		this.dimensionY = pDimensionY;
 		this.image = pImage;
 		this.speed = pSpeed;
+		this.isAlive = pIsAlive;
 		this.damage = pDamage;
 		this.points = pPoints;
 		this.direction = pDirection;

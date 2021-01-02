@@ -7,6 +7,7 @@ import cda.actors.friendly.ShipHandler;
 import cda.actors.managers.BonusManager;
 import cda.actors.managers.ColisionManager;
 import cda.actors.managers.EnemiesManager;
+import cda.commons.libs.MusicAsset;
 import cda.screens.AbstractScreen;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
@@ -24,6 +25,8 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 //		scrolling = BackgroundParallaxScrolling.getInstance();
 //		scrolling.init(batch);
 		dashBoard = new DashBoard(this);
+        playMusic(MusicAsset.GAME);
+
 		
 		Pane root = new Pane();
 		setRoot(root);
