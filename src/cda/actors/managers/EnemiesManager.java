@@ -2,6 +2,7 @@ package cda.actors.managers;
 
 import cda.actors.enemies.EnemiesType;
 import cda.actors.enemies.Enemy;
+import cda.screens.game.GamePlayScreen;
 import javafx.animation.PathTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.Group;
@@ -18,7 +19,8 @@ import javafx.util.Duration;
 
 public class EnemiesManager {
 
-	public static Enemy enemiesCreate(Pane root) {
+	public static Enemy enemiesCreate() {
+		Pane root = GamePlayScreen.getRoot();
 		Enemy enemy = EnemiesType.create();
 		Enemy.addEnemy(enemy);
 		Node nodeEnemy =  enemy.getNode();

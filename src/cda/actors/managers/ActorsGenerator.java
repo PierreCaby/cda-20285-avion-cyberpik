@@ -21,9 +21,9 @@ private static ArrayList<AbstractActors> actors = new ArrayList<>();
 	public static AbstractActors actorsCreate(Pane pRoot) {
 		Random rand = new Random();
 		if (rand.nextInt(10) == 0) {
-			return BonusManager.bonusCreate(pRoot);
+			return BonusManager.bonusCreate();
 		} else {
-			return EnemiesManager.enemiesCreate(pRoot);
+			return EnemiesManager.enemiesCreate();
 		}
 	}
 

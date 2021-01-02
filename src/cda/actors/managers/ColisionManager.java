@@ -6,6 +6,8 @@ import cda.actors.enemies.EnemiesType;
 import cda.actors.enemies.Enemy;
 import cda.actors.friendly.Ship;
 import cda.commons.display.ExplosionDisplay;
+import cda.screens.game.GamePlayScreen;
+import javafx.scene.layout.Pane;
 
 public class ColisionManager {
 
@@ -32,11 +34,12 @@ public class ColisionManager {
 	}
 
 	public static void checkEnemyColision() {
+		Pane root = GamePlayScreen.getRoot();
 		Ship ship = Ship.getShip();
 		for (Enemy enemy : Enemy.getEnemies()) {
 		if (isColliding(Ship.getShip(), enemy)) {
 				System.out.println("oh yeaahhhh");
-//				ExplosionDisplay.explosionDisplay(pRoot, enemy);
+				ExplosionDisplay.explosionDisplay(enemy);
 
 				enemy.setAlive(false);
 				

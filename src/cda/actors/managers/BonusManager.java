@@ -2,6 +2,7 @@ package cda.actors.managers;
 
 import cda.actors.collectables.Bonus;
 import cda.actors.collectables.BonusType;
+import cda.screens.game.GamePlayScreen;
 import javafx.animation.TranslateTransition;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -13,7 +14,8 @@ import javafx.util.Duration;
 
 public class BonusManager {
 	
-	public static Bonus bonusCreate(Pane root) {
+	public static Bonus bonusCreate() {
+		Pane root = GamePlayScreen.getRoot();
 		Bonus bonus = BonusType.create();
 		Bonus.addBonus(bonus);
 		Node nodeBonus = bonus.getNode();
