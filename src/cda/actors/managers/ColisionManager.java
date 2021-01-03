@@ -29,10 +29,7 @@ public class ColisionManager {
 					System.out.println("1 " + Ship.getShip().isShield());
 					System.out.println("1 " + Ship.getShip().isShoot());
 				} else {
-					Ship.getShip().setShield(true);
-					SoundEffectAsset.play(SoundEffectAsset.BONUS);
-					System.out.println("2 " + Ship.getShip().isShield());
-					System.out.println("2 " + Ship.getShip().isShoot());
+					shieldManager.shieldManager();
 				}
 				bonus.destroy();
 			}
