@@ -19,7 +19,7 @@ public class ShipHandler {
 		final double width = root.getScene().getWidth();
 		final double height = root.getScene().getHeight();
 		
-		Ship ship = new Ship(64, 64, width/2, height/2, ShipView.SHIP.getImage(), 4, true, false, false, 5, 0);
+		Ship ship = new Ship(width/2, height/2, 64, 64, ShipView.SHIP.getImage(), 4, true, false, false, 5, 0);
 		Ship.setShip(ship);
 		Node nodeShip = ship.getNode();		
 
@@ -90,7 +90,7 @@ public class ShipHandler {
 		return ship;
 	}
 
-	private static void moveShipBy(Node pShip, int dx, int dy, double pWidth, double pHeight) {
+	public static void moveShipBy(Node pShip, int dx, int dy, double pWidth, double pHeight) {
 		if (dx == 0 && dy == 0)
 			return;
 
@@ -103,7 +103,7 @@ public class ShipHandler {
 		moveShipTo(pShip, x, y, pWidth, pHeight);
 	}
 
-	private static void moveShipTo(Node pShip, double x, double y, double pWidth, double pHeight) {
+	public static void moveShipTo(Node pShip, double x, double y, double pWidth, double pHeight) {
 		final double cx = pShip.getBoundsInLocal().getWidth() / 2;
 		final double cy = pShip.getBoundsInLocal().getHeight() / 2;
 

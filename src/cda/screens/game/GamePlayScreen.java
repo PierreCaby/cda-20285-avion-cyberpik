@@ -5,6 +5,7 @@ import cda.actors.friendly.ShipHandler;
 import cda.actors.managers.ActorsGenerator;
 import cda.actors.managers.ColisionManager;
 import cda.actors.managers.ScoreManager;
+import cda.actors.managers.shieldManager;
 import cda.commons.Global;
 import cda.commons.libs.MusicAsset;
 import cda.commons.libs.VisualAsset;
@@ -41,6 +42,9 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 			
 			@Override
 			public void handle(long now) {
+				if (ship.isShield()) {
+				shieldManager.shieldCreate();
+				}
 				ColisionManager.checkBonusColision();
 				ColisionManager.checkEnemyColision();
 				ScoreManager.scoreCalculator();

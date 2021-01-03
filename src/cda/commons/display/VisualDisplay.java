@@ -1,5 +1,6 @@
 package cda.commons.display;
 
+import cda.commons.libs.SoundEffectAsset;
 import cda.commons.libs.VisualAsset;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -7,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class VisualDisplay extends Application {
@@ -24,10 +26,7 @@ public class VisualDisplay extends Application {
 		Scene theScene = new Scene(root);
 		stage.setScene(theScene);
 
-		Canvas canvas = new Canvas(500, 700);
-		root.getChildren().add(canvas);
 
-		GraphicsContext gc = canvas.getGraphicsContext2D();
 
 		Image background = new Image(VisualAsset.SKY_BACKGROUND.getFilePath());
 		Image ship = new Image(VisualAsset.SHIP.getFilePath());
@@ -44,7 +43,11 @@ public class VisualDisplay extends Application {
 		Image asteroidIceberg = new Image(VisualAsset.ASTEROID_ICEBERG.getFilePath());
 		Image asteroidZigZag = new Image(VisualAsset.ASTEROID_ZIGZAG.getFilePath());
 
-	
+		SoundEffectAsset.play(SoundEffectAsset.BONUS);
+		ImageView nodeShield = new ImageView(new Image(VisualAsset.SHIELD.getFilePath()));
+		nodeShield.setX(200);
+		nodeShield.setY(50);
+		root.getChildren().add(nodeShield);
 
 		stage.show();
 		
