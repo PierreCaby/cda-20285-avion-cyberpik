@@ -8,6 +8,7 @@ import cda.commons.libs.MusicAsset;
 import cda.commons.libs.VisualAsset;
 import cda.game.SchmupApp;
 import cda.screens.AbstractScreen;
+import cda.screens.ScreenFactory;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -28,97 +29,101 @@ import javafx.util.Pair;
 
 public class MenuScreen extends AbstractScreen {
 	private static final String GAME_TITLE = "CYBERSHMUP";
-    private VBox menuBox = new VBox(-5);
-    private Line line;
+	private VBox menuBox = new VBox(-5);
+	private Line line;
 
 	public MenuScreen(Stage window) {
 		super(window);
 		this.root = new Pane();
 		this.scene = new Scene(createContent());
 	}
-	
-    private List<Pair<String, Runnable>> menuData = Arrays.asList(
-            new Pair<String, Runnable>("Single Player", () -> window.setScene(SchmupApp.getGamePlayScreen().getScene())),
+
+	private List<Pair<String, Runnable>> menuData = Arrays.asList(
+            new Pair<String, Runnable>("Single Player", () -> {
+            	stopMusic();
+            	AbstractScreen gamePlayScreen = ScreenFactory.createScreen(ScreenFactory.GAME_SCREEN, window);
+            	SchmupApp.setGamePlayScreen(gamePlayScreen);
+            	}
+            ),
             new Pair<String, Runnable>("ScoreBoard", () -> {}),
             new Pair<String, Runnable>("Exit to Desktop", Platform::exit)
     );
 
-    private Parent createContent() {
-        addBackground();
-        addTitle();
-        playMusic(MusicAsset.STARTER_MENU);
+	private Parent createContent() {
+		addBackground();
+		addTitle();
+		playMusic(MusicAsset.STARTER_MENU);
 
-        double lineX = Global.SCREEN_WIDTH / 2 - 100;
-        double lineY = Global.SCREEN_HEIGHT / 3 + 50;
+		double lineX = Global.SCREEN_WIDTH / 2 - 100;
+		double lineY = Global.SCREEN_HEIGHT / 3 + 50;
 
-        addLine(lineX, lineY);
-        addMenu(lineX + 5, lineY + 5);
+		addLine(lineX, lineY);
+		addMenu(lineX + 5, lineY + 5);
 
-        startAnimation();
+		startAnimation();
 
-        return root;
-    }
+		return root;
+	}
 
-    private void addBackground() {
-        ImageView imageView = new ImageView(new Image(VisualAsset.SKY_BACKGROUND.getFilePath()));
-        imageView.setFitWidth(Global.SCREEN_WIDTH);
-        imageView.setFitHeight(Global.SCREEN_HEIGHT);
-        
-        
-        root.getChildren().add(imageView);
-    }
+	private void addBackground() {
+		ImageView imageView = new ImageView(new Image(VisualAsset.SKY_BACKGROUND.getFilePath()));
+		imageView.setFitWidth(Global.SCREEN_WIDTH);
+		imageView.setFitHeight(Global.SCREEN_HEIGHT);
 
-    private void addTitle() {
-        Title title = new Title(GAME_TITLE);
-        title.setTranslateX(Global.SCREEN_WIDTH / 2 - title.getTitleWidth() / 2);
-        title.setTranslateY(Global.SCREEN_HEIGHT / 3);
+		root.getChildren().add(imageView);
+	}
 
-        root.getChildren().add(title);
-    }
+	private void addTitle() {
+		Title title = new Title(GAME_TITLE);
+		title.setTranslateX(Global.SCREEN_WIDTH / 2 - title.getTitleWidth() / 2);
+		title.setTranslateY(Global.SCREEN_HEIGHT / 3);
 
-    private void addLine(double x, double y) {
-        line = new Line(x, y, x, y + 125);
-        line.setStrokeWidth(3);
-        line.setStroke(Color.color(1, 1, 1, 0.75));
-        line.setEffect(new DropShadow(5, Color.BLACK));
-        line.setScaleY(0);
+		root.getChildren().add(title);
+	}
 
-        root.getChildren().add(line);
-    }
+	private void addLine(double x, double y) {
+		line = new Line(x, y, x, y + 125);
+		line.setStrokeWidth(3);
+		line.setStroke(Color.color(1, 1, 1, 0.75));
+		line.setEffect(new DropShadow(5, Color.BLACK));
+		line.setScaleY(0);
 
-    private void startAnimation() {
-        ScaleTransition st = new ScaleTransition(Duration.seconds(1), line);
-        st.setToY(1);
-        st.setOnFinished(e -> {
+		root.getChildren().add(line);
+	}
 
-            for (int i = 0; i < menuBox.getChildren().size(); i++) {
-                Node n = menuBox.getChildren().get(i);
+	private void startAnimation() {
+		ScaleTransition st = new ScaleTransition(Duration.seconds(1), line);
+		st.setToY(1);
+		st.setOnFinished(e -> {
 
-                TranslateTransition tt = new TranslateTransition(Duration.seconds(1 + i * 0.15), n);
-                tt.setToX(0);
-                tt.setOnFinished(e2 -> n.setClip(null));
-                tt.play();
-            }
-        });
-        st.play();
-    }
+			for (int i = 0; i < menuBox.getChildren().size(); i++) {
+				Node n = menuBox.getChildren().get(i);
 
-    private void addMenu(double x, double y) {
-        menuBox.setTranslateX(x);
-        menuBox.setTranslateY(y);
-        menuData.forEach(data -> {
-            MenuItem item = new MenuItem(data.getKey());
-            item.setOnAction(data.getValue());
-            item.setTranslateX(-300);
+				TranslateTransition tt = new TranslateTransition(Duration.seconds(1 + i * 0.15), n);
+				tt.setToX(0);
+				tt.setOnFinished(e2 -> n.setClip(null));
+				tt.play();
+			}
+		});
+		st.play();
+	}
 
-            Rectangle clip = new Rectangle(300, 30);
-            clip.translateXProperty().bind(item.translateXProperty().negate());
+	private void addMenu(double x, double y) {
+		menuBox.setTranslateX(x);
+		menuBox.setTranslateY(y);
+		menuData.forEach(data -> {
+			MenuItem item = new MenuItem(data.getKey());
+			item.setOnAction(data.getValue());
+			item.setTranslateX(-300);
 
-            item.setClip(clip);
+			Rectangle clip = new Rectangle(300, 30);
+			clip.translateXProperty().bind(item.translateXProperty().negate());
 
-            menuBox.getChildren().addAll(item);
-        });
+			item.setClip(clip);
 
-        root.getChildren().add(menuBox);
-    }
+			menuBox.getChildren().addAll(item);
+		});
+
+		root.getChildren().add(menuBox);
+	}
 }
