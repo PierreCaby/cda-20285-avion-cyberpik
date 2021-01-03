@@ -22,12 +22,17 @@ public abstract class AbstractScreen {
 		this.window = window;
 	}
 
-	protected void playMusic(MusicAsset pMusic) {
+	protected static void playMusic(MusicAsset pMusic) {
 		Media musicMedia = new Media(pMusic.getFilePath());
 		musicMediaPlayer = new MediaPlayer(musicMedia);
 		musicMediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 		musicMediaPlayer.setAutoPlay(true);
 	}
+	
+	protected static void stopMusic() {
+		musicMediaPlayer.stop();
+	}
+	
 
 	public Scene getScene() {
 		return scene;

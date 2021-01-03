@@ -22,7 +22,7 @@ public final class SchmupApp extends Application {
 	@Override
 	public void start(Stage window) throws Exception {
 		configurePrimaryStage(window);
-		createAllScenes(window);
+		createFirstScene(window);
 
 		// Display the menu
 		window.setScene(menuScreen.getScene());
@@ -37,9 +37,9 @@ public final class SchmupApp extends Application {
 	/**
 	 * Create the different scenes through a factory
 	 */
-	private static void createAllScenes(Stage window) {
+	private static void createFirstScene(Stage window) {
 		menuScreen = ScreenFactory.createScreen(ScreenFactory.MENU_SCREEN, window);
-		gamePlayScreen = ScreenFactory.createScreen(ScreenFactory.GAME_SCREEN, window);
+		// gamePlayScreen = ScreenFactory.createScreen(ScreenFactory.GAME_SCREEN, window);
 		// scoreBoardScreen = ScreenFactory.createScreen(ScreenFactory.SCORE_BOARD_SCREEN, window);
 	}
 	
