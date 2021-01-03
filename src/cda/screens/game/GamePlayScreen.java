@@ -5,7 +5,8 @@ import cda.actors.friendly.ShipHandler;
 import cda.actors.managers.ActorsGenerator;
 import cda.actors.managers.ColisionManager;
 import cda.actors.managers.ScoreManager;
-import cda.actors.managers.shieldManager;
+import cda.actors.managers.ShieldManager;
+import cda.actors.managers.ShootManager;
 import cda.commons.Global;
 import cda.commons.libs.MusicAsset;
 import cda.commons.libs.VisualAsset;
@@ -39,14 +40,20 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 		ActorsGenerator.actorsCreate();
 		
 		AnimationTimer time = new AnimationTimer() {
-			
+			private long update = 0;
+
 			@Override
 			public void handle(long now) {
 				if (ship.isShield()) {
-				shieldManager.shieldCreate();
+					ShieldManager.shieldCreate();
+				}
+				if (ship.isShoot() && now - update >= 300000000) {
+					ShootManager.shootCreate();
+					update = now;
 				}
 				ColisionManager.checkBonusColision();
 				ColisionManager.checkEnemyColision();
+				ColisionManager.checkRocketColision();
 				ScoreManager.scoreCalculator();
 			}
 		};
