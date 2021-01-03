@@ -1,9 +1,6 @@
 package cda.actors.friendly;
 
 import cda.actors.AbstractActors;
-import cda.commons.display.ExplosionDisplay;
-import cda.game.SchmupApp;
-import cda.screens.game.GamePlayScreen;
 import javafx.scene.image.Image;
 
 public class Ship extends AbstractActors {
