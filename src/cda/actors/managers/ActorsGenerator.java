@@ -14,7 +14,7 @@ public class ActorsGenerator {
 			public void handle(long now) {
 				if (now - update >= 999999999) {
 					Random rand = new Random();
-					if (rand.nextInt(2) == 0) {
+					if (rand.nextInt(10) == 0) {
 						BonusManager.bonusCreate();
 					} else {
 						EnemiesManager.enemiesCreate();

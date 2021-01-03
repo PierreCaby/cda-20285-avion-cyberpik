@@ -29,6 +29,7 @@ public class ExplosionManager {
 		ImageView view = new ImageView(image);
 		view.setX(pAbstractActor.getNode().getBoundsInParent().getMinX());
 		view.setY(pAbstractActor.getNode().getBoundsInParent().getMinY());
+		view.xProperty().setValue(pAbstractActor.getNode().getBoundsInParent().getMinX());
 	
 
 		Rectangle mask = new Rectangle(frameWidth, image.getHeight());
@@ -39,8 +40,9 @@ public class ExplosionManager {
 		Timeline timeline = new Timeline();
 
 		for (int i = 0; i <= numberOfFrames; i++) {
-			KeyFrame vKF = new KeyFrame(Duration.millis(i * 150),
-					new KeyValue(view.xProperty(), -frameWidth * i, Interpolator.DISCRETE));
+			KeyValue vKV = new KeyValue(view.xProperty(), -frameWidth * i, Interpolator.DISCRETE);
+		
+			KeyFrame vKF = new KeyFrame(Duration.millis(i * 250), vKV);
 			timeline.getKeyFrames().add(vKF);
 		}
 		SoundEffectAsset.play(SoundEffectAsset.EXPLOSION);
