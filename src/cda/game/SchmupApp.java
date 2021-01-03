@@ -46,5 +46,31 @@ public final class SchmupApp extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+		
+	public static AbstractScreen getMenuScreen() {
+		return menuScreen;
+	}
+
+	public static void setMenuScreen(AbstractScreen menuScreen) {
+		SchmupApp.menuScreen = menuScreen;
+	}
+
+	public static AbstractScreen getGamePlayScreen() {
+		return gamePlayScreen;
+	}
+
+	public static void setGamePlayScreen(AbstractScreen gamePlayScreen) {
+		SchmupApp.gamePlayScreen = gamePlayScreen;
+	}
+
+	public static AbstractScreen getScoreBoardScreen() {
+		return scoreBoardScreen;
+	}
+
+	public static void setScoreBoardScreen(AbstractScreen scoreBoardScreen) {
+		SchmupApp.scoreBoardScreen = scoreBoardScreen;
+	}
+
+
 
 }
