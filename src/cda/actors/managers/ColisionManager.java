@@ -4,7 +4,6 @@ import cda.actors.AbstractActors;
 import cda.actors.collectables.Bonus;
 import cda.actors.enemies.Enemy;
 import cda.actors.friendly.Ship;
-import cda.commons.display.ExplosionDisplay;
 import cda.commons.libs.SoundEffectAsset;
 import cda.screens.game.GamePlayScreen;
 import javafx.scene.layout.Pane;
@@ -26,8 +25,6 @@ public class ColisionManager {
 				if (bonus.isAttack()) { 
 					Ship.getShip().setShoot(true);
 					SoundEffectAsset.play(SoundEffectAsset.BONUS);
-					System.out.println("1 " + Ship.getShip().isShield());
-					System.out.println("1 " + Ship.getShip().isShoot());
 				} else {
 					shieldManager.shieldManager();
 				}
@@ -41,14 +38,12 @@ public class ColisionManager {
 		Ship ship = Ship.getShip();
 		for (Enemy enemy : Enemy.getEnemies()) {
 			if (isColliding(Ship.getShip(), enemy)) {
-				ExplosionDisplay.explosionDisplay(enemy);
+				ExplosionManager.explosionDisplay(enemy);
 				if (!ship.isShield()) {					
 					ship.decreaseLife(enemy.getDamage());
 				}
 				System.out.println(ship.getLifeCount());
 				enemy.destroy();
-				SoundEffectAsset.play(SoundEffectAsset.LOST_LIFE);
-
 			}
 		}
 	}
