@@ -58,5 +58,6 @@ public class DashBoard {
 		pane.setTranslateY(Global.SCREEN_HEIGHT / 20 - statusBarText.getLayoutBounds().getHeight() / 20);
 	
 		pane.getChildren().addAll(statusBarText);
+		pane.toFront();
 	}
 }
