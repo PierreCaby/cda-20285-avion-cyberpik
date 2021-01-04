@@ -55,6 +55,7 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 				ColisionManager.checkEnemyColision();
 				ColisionManager.checkRocketColision();
 				ScoreManager.scoreCalculator();
+				dashBoard.updateStatusBar();
 			}
 		};
 		time.start();
