@@ -23,22 +23,22 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 
 	private BackgroundParallaxScrolling scrolling;
 	private DashBoard dashBoard;
+	private Ship ship;
 
 	public GamePlayScreen(Stage window) {
 		super(window);
 		dashBoard = new DashBoard(this);
-		
-        playMusic(MusicAsset.GAME);
 
-		
+		playMusic(MusicAsset.GAME);
+
 		Pane root = new Pane(addBackground());
 		setRoot(root);
 		this.scene = new Scene(root, Global.SCREEN_WIDTH, Global.SCREEN_HEIGHT);
 		window.setScene(scene);
-		
-		Ship ship = ShipHandler.shipMove();
+
+		ship = ShipHandler.shipMove();
 		ActorsGenerator.actorsCreate();
-		
+
 		AnimationTimer time = new AnimationTimer() {
 			private long update = 0;
 
@@ -58,16 +58,17 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 			}
 		};
 		time.start();
-		
-	
+
 	}
-	
-	  
-	
-    private ImageView addBackground() {
-        ImageView imageView = new ImageView(new Image(VisualAsset.SKY_BACKGROUND.getFilePath()));
-        imageView.setFitWidth(Global.SCREEN_WIDTH);
-        imageView.setFitHeight(Global.SCREEN_HEIGHT);
-        return imageView;       
-    }
+
+	private ImageView addBackground() {
+		ImageView imageView = new ImageView(new Image(VisualAsset.SKY_BACKGROUND.getFilePath()));
+		imageView.setFitWidth(Global.SCREEN_WIDTH);
+		imageView.setFitHeight(Global.SCREEN_HEIGHT);
+		return imageView;
+	}
+
+	public Ship getShip() {
+		return ship;
+	}
 }
