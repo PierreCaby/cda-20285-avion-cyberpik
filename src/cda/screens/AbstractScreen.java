@@ -7,16 +7,19 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * Parent class of all the screens of the game. Each Screen is constructed
+ * around a scene and a pane.
+ * 
+ * @author Valentin
+ *
+ */
 public abstract class AbstractScreen {
 	protected Stage window;
 	protected static Pane root;
 	protected Scene scene;
 	protected static MediaPlayer musicMediaPlayer;
-
-	// private static final ControllerAdapter<GameControls> userInput = new
-	// ControllerAdapter<>(ControllerFactory.buildMultiController());
-
-	// private final SpriteBatch batch;
 
 	public AbstractScreen(Stage window) {
 		this.window = window;
@@ -28,11 +31,10 @@ public abstract class AbstractScreen {
 		musicMediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 		musicMediaPlayer.setAutoPlay(true);
 	}
-	
+
 	protected static void stopMusic() {
 		musicMediaPlayer.stop();
 	}
-	
 
 	public Scene getScene() {
 		return scene;
@@ -45,5 +47,4 @@ public abstract class AbstractScreen {
 	public static void setRoot(Pane pRoot) {
 		root = pRoot;
 	}
-
 }
