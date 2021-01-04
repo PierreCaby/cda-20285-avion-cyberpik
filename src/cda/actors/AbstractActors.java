@@ -19,7 +19,7 @@ public abstract class AbstractActors {
 	private Image image;
 	private double speed;
 	private ImageView node;
-	private boolean isAlive;
+	protected boolean isAlive;
 	
 	public AbstractActors(double pPositionX, double pPositionY, double pDimensionX, double pDimensionY, Image pImage, double pSpeed, boolean isAlive) {
 		this.positionX = pPositionX;

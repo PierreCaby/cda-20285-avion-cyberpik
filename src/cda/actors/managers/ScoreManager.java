@@ -17,7 +17,7 @@ public class ScoreManager {
 	public static void scoreCalculator() {
 		for (Enemy enemy : Enemy.getEnemies()) {
 			if (enemy.getNode().getBoundsInParent().getMinY() >= Global.SCREEN_HEIGHT && enemy.isAlive()) {
-				Ship.increasePoint(enemy.getPoints());
+				Ship.getShip().increasePoint(enemy.getPoints());
 				System.out.println(Ship.getShip().getPoint());
 				enemy.setAlive(false);
 			}

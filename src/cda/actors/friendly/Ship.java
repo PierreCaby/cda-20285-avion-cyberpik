@@ -14,8 +14,8 @@ import javafx.scene.image.Image;
 public class Ship extends AbstractActors {
 	private boolean shield;
 	private boolean shoot;
-	private static int lifeCount;
-	private static int point;
+	private int lifeCount;
+	private int point;
 	private static Ship ship;
 	
 
@@ -64,11 +64,10 @@ public class Ship extends AbstractActors {
 	}
 
 
-	public static void decreaseLife(int pDamage) {
+	public void decreaseLife(int pDamage) {
 		lifeCount -= pDamage;
-		if(lifeCount<=0) {
-			//TODO close game
-		}
+		if(lifeCount <= 0) {
+			isAlive = false;		}
 	}
 
 
@@ -77,7 +76,7 @@ public class Ship extends AbstractActors {
 	}
 
 
-	public static void increasePoint(int pPoint) {
+	public void increasePoint(int pPoint) {
 		point += pPoint;
 	}
 
