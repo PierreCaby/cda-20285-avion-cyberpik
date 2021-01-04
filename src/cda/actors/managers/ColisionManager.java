@@ -4,8 +4,10 @@ import cda.actors.AbstractActors;
 import cda.actors.collectables.Bonus;
 import cda.actors.enemies.Enemy;
 import cda.actors.friendly.Ship;
+import cda.commons.libs.VisualAsset;
 import cda.screens.game.GamePlayScreen;
 import javafx.scene.Node;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 public class ColisionManager {
@@ -29,8 +31,7 @@ public class ColisionManager {
 			if (isColliding(ship, bonus)) {
 				bonus.setAlive(false);
 				if (bonus.isAttack()) { 
-					Ship.getShip().setShoot(true);
-					ShootManager.shootCreate();
+					ShootManager.shootManager();
 				} else {
 					ShieldManager.shieldManager();
 				}

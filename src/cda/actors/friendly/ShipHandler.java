@@ -45,6 +45,8 @@ public class ShipHandler {
 				case RIGHT:
 					right = true;
 					break;
+				default:
+					break;
 				}
 			}
 		});
@@ -65,6 +67,8 @@ public class ShipHandler {
 				case RIGHT:
 					right = false;
 					break;
+				default:
+					break;					
 				}
 			}
 		});
