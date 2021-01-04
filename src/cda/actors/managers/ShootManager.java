@@ -19,7 +19,7 @@ public class ShootManager {
 	
 	private static ArrayList<Node> rockets = new ArrayList<>();
 	
-	public static void shieldManager() {
+	public static void shootManager() {
 		Pane root = GamePlayScreen.getRoot();
 		Ship ship = Ship.getShip();
 		ship.setShoot(true);
@@ -46,10 +46,10 @@ public class ShootManager {
 		nodeShoot2.setY(ship.getNode().getBoundsInParent().getMinY());
 		
 		Timeline timeline1 = new Timeline(
-			new KeyFrame(Duration.millis(20), (evt) -> nodeShoot1.setY(nodeShoot1.getY() - 5))
+			new KeyFrame(Duration.millis(10), (evt) -> nodeShoot1.setY(nodeShoot1.getY() - 5))
 		);
 		Timeline timeline2 = new Timeline(
-			new KeyFrame(Duration.millis(20), (evt) -> nodeShoot2.setY(nodeShoot2.getY() - 5))
+			new KeyFrame(Duration.millis(10), (evt) -> nodeShoot2.setY(nodeShoot2.getY() - 5))
 		);
 		
 		timeline1.setCycleCount(Animation.INDEFINITE);

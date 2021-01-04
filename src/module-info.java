@@ -9,10 +9,8 @@ module cda {
 	exports cda.actors.managers;
 	exports cda.screens.menu;
 	exports cda.screens.game;
-	exports cda.commons.display;
 	exports cda.actors.friendly;
 	exports cda.commons.libs;
-	exports cda.commons.utils;
 
 	requires javafx.base;
 	requires javafx.graphics;

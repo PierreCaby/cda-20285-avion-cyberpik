@@ -32,7 +32,7 @@ public class ShieldManager {
 		nodeShield.setY(ship.getNode().getBoundsInParent().getMinY() - 10);
 		FadeTransition vFT = new FadeTransition();
 		vFT.setNode(nodeShield);
-		vFT.setDuration(Duration.millis(50));
+		vFT.setDuration(Duration.millis(1));
 		vFT.setFromValue(0.000001);
 		vFT.setToValue(0);
 		vFT.play();
