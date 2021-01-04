@@ -27,7 +27,6 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 
 	public GamePlayScreen(Stage window) {
 		super(window);
-		dashBoard = new DashBoard(this);
 
 		playMusic(MusicAsset.GAME);
 
@@ -38,7 +37,8 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 
 		ship = ShipHandler.shipMove();
 		ActorsGenerator.actorsCreate();
-
+		dashBoard = new DashBoard(this);
+		
 		AnimationTimer time = new AnimationTimer() {
 			private long update = 0;
 
