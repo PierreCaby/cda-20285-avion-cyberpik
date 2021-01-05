@@ -24,6 +24,7 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 	private BackgroundParallaxScrolling scrolling;
 	private DashBoard dashBoard;
 	private Ship ship;
+	private AnimationTimer time;
 
 	public GamePlayScreen(Stage window) {
 		super(window);
@@ -39,17 +40,23 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 		ActorsGenerator.actorsCreate();
 		dashBoard = new DashBoard(this);
 		
-		AnimationTimer time = new AnimationTimer() {
-			private long update = 0;
+		time = new AnimationTimer() {
+			private long updateShoot = 0;
+			private long updateActors = 0;
 
 			@Override
 			public void handle(long now) {
+				if (now - updateActors >= 999999999) {
+					ActorsGenerator.actorsCreate();
+					updateActors = now;
+				}
+				ShipHandler.movehandler();
 				if (ship.isShield()) {
 					ShieldManager.shieldCreate();
 				}
-				if (ship.isShoot() && now - update >= 300000000) {
+				if (ship.isShoot() && now - updateShoot >= 300000000) {
 					ShootManager.shootCreate();
-					update = now;
+					updateShoot = now;
 				}
 				ColisionManager.checkBonusColision();
 				ColisionManager.checkEnemyColision();
