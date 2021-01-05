@@ -40,10 +40,12 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 		ship = ShipHandler.shipMove();
 		ActorsGenerator.actorsCreate();
 		dashBoard = new DashBoard(this);
-		
+
 		time = new AnimationTimer() {
 			private long updateShoot = 0;
 			private long updateActors = 0;
+			private long updateChronoShield = 0;
+			private long updateChronoShoot = 0;
 
 			@Override
 			public void handle(long now) {
@@ -54,10 +56,18 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 				ShipHandler.movehandler();
 				if (ship.isShield()) {
 					ShieldManager.shieldCreate();
+					if (now - updateChronoShield >= 999999999) {
+						ShieldManager.decreaseTimer();
+						updateChronoShield = now;
+					}
 				}
-				if (ship.isShoot() && now - updateShoot >= 300000000) {
+				if (ship.isShoot() && now - updateShoot >= 333333333) {
 					ShootManager.shootCreate();
 					updateShoot = now;
+				}
+				if (ship.isShoot() && now - updateChronoShoot >= 999999999) {
+					ShootManager.decreaseTimer();
+					updateChronoShoot = now;
 				}
 
 				if (isGameOver()) {

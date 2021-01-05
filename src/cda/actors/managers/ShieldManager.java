@@ -1,9 +1,7 @@
 package cda.actors.managers;
 
 import cda.actors.friendly.Ship;
-import cda.commons.libs.SoundEffectAsset;
 import cda.commons.libs.VisualAsset;
-import cda.screens.AbstractScreen;
 import cda.screens.game.GamePlayScreen;
 import javafx.animation.FadeTransition;
 import javafx.scene.image.Image;
@@ -20,16 +18,16 @@ import javafx.util.Duration;
  */
 
 public class ShieldManager {
+	
+	private static float timer;
 
 	public static void shieldManager() {
 		Pane root = GamePlayScreen.getRoot();
 		Ship ship = Ship.getShip();
+		timer = 10;
 		ship.setShield(true);
-//		AbstractScreen.playSoundEffect(SoundEffectAsset.BONUS);
 		
-		// TODO chrono
-		
-//		Ship.getShip().setShield(false);
+//		AbstractScreen.playSoundEffect(SoundEffectAsset.BONUS);		
 	}
 	
 	public static void shieldCreate() {
@@ -54,5 +52,17 @@ public class ShieldManager {
 		
 		root.getChildren().add(nodeShield);
 	}
+
+	public static float getTimer() {
+		return timer*10;
+	}
+
+	public static void decreaseTimer() {
+		timer--;
+		if (timer == 0) {
+			Ship.getShip().setShield(false);
+		}
+	}
+	
 
 }
