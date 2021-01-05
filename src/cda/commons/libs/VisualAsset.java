@@ -44,11 +44,12 @@ public enum VisualAsset {
 	
 	VisualAsset(String pFileName) {
 		try {
-			this.filePath = SoundEffectAsset.class.getResource("/visual/" + pFileName).toURI().toString();
+			this.filePath = VisualAsset.class.getResource("/visual/" + pFileName).toURI().toString();
 		} catch (URISyntaxException e) {
 			throw new IllegalArgumentException(e.getCause());
 		}
 	}
+
 
 	public String getFilePath() {
 		return filePath;

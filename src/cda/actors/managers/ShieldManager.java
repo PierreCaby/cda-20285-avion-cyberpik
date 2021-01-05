@@ -3,6 +3,7 @@ package cda.actors.managers;
 import cda.actors.friendly.Ship;
 import cda.commons.libs.SoundEffectAsset;
 import cda.commons.libs.VisualAsset;
+import cda.screens.AbstractScreen;
 import cda.screens.game.GamePlayScreen;
 import javafx.animation.FadeTransition;
 import javafx.scene.image.Image;
@@ -24,12 +25,11 @@ public class ShieldManager {
 		Pane root = GamePlayScreen.getRoot();
 		Ship ship = Ship.getShip();
 		ship.setShield(true);
-		SoundEffectAsset.play(SoundEffectAsset.BONUS);
+//		AbstractScreen.playSoundEffect(SoundEffectAsset.BONUS);
 		
 		// TODO chrono
 		
 //		Ship.getShip().setShield(false);
-
 	}
 	
 	public static void shieldCreate() {

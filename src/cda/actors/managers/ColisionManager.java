@@ -5,7 +5,7 @@ import cda.actors.collectables.Bonus;
 import cda.actors.enemies.Enemy;
 import cda.actors.friendly.Ship;
 import cda.screens.game.GamePlayScreen;
-import javafx.scene.Node;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 /**
@@ -24,7 +24,7 @@ public class ColisionManager {
 		}
 		return false;
 	}
-	private static boolean isCollidingRocket(Enemy pEnemy, Node pRocket) {
+	private static boolean isCollidingRocket(Enemy pEnemy, ImageView pRocket) {
 		while (pEnemy.isAlive() && pEnemy.getNode().getBoundsInParent().getMaxY() >= 30) {
 			return pRocket.getBoundsInParent().intersects(pEnemy.getNode().getBoundsInParent());
 		}
@@ -64,7 +64,7 @@ public class ColisionManager {
 		Ship ship = Ship.getShip();
 		Pane root = GamePlayScreen.getRoot();
 		for (Enemy enemy : Enemy.getEnemies()) {
-			for (Node rocket : ShootManager.getRockets())
+			for (ImageView rocket : ShootManager.getRockets())
 			if (isCollidingRocket(enemy, rocket)) {
 				ExplosionManager.explosionDisplay(enemy);
 				ship.increasePoint(enemy.getPoints());
