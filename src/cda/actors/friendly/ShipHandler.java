@@ -2,7 +2,6 @@ package cda.actors.friendly;
 
 import cda.commons.Global;
 import cda.screens.game.GamePlayScreen;
-import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -27,13 +26,18 @@ public class ShipHandler {
 	private final static double HEIGHT = Global.SCREEN_HEIGHT;
 	
 	public static Ship shipMove() {
+		// Set the direction to false to avoid problems of pressed keys when launching again the game;
+		up = false;
+		down = false;
+		left = false;
+		right = false;
+		
 		Pane root = GamePlayScreen.getRoot();
 		final double height = root.getScene().getHeight();
 		
 		Ship ship = new Ship(WIDTH/2, height/2, 64, 64, ShipView.SHIP_NOREACTOR.getImage(), 4, true, false, false, 5, 0);
 		Ship.setShip(ship);
 		nodeShip = ship.getNode();	
-
 
 		root.getChildren().add(nodeShip);
 
