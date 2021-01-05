@@ -25,7 +25,7 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 	private BackgroundParallaxScrolling scrolling;
 	private DashBoard dashBoard;
 	private Ship ship;
-	private AnimationTimer time;
+	private AnimationTimer timer;
 
 	public GamePlayScreen(Stage window) {
 		super(window);
@@ -41,7 +41,7 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 		ActorsGenerator.actorsCreate();
 		dashBoard = new DashBoard(this);
 
-		time = new AnimationTimer() {
+		timer = new AnimationTimer() {
 			private long updateShoot = 0;
 			private long updateActors = 0;
 			private long updateChronoShield = 0;
@@ -81,7 +81,7 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 				dashBoard.updateStatusBar();
 			}
 		};
-		time.start();
+		timer.start();
 
 	}
 
@@ -93,6 +93,9 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 	}
 
 	private void closeGame() {
+		timer.stop();
+		stopMusic();
+		playMusic(MusicAsset.STARTER_MENU);
 		window.setScene(SchmupApp.getMenuScreen().getScene());
 	}
 
