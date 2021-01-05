@@ -66,6 +66,14 @@ public abstract class AbstractActors {
 		this.setAlive(false);
 		this.getNode().setVisible(false);
 	}
+
+	public void setNode(Node pNode) {
+		this.node = pNode;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
+	}
 	
 	
 	

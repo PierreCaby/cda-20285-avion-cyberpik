@@ -34,9 +34,19 @@ public class ShootManager {
 	public static void shootCreate() {
 		Pane root = GamePlayScreen.getRoot();
 		Ship ship = Ship.getShip();
-		ImageView nodeShoot1 = new ImageView(new Image(VisualAsset.SHOOT.getFilePath()));
-		ImageView nodeShoot2 = new ImageView(new Image(VisualAsset.SHOOT.getFilePath()));
+		ImageView nodeShoot1 = new ImageView();
+		ImageView nodeShoot2 = new ImageView();
+
+		if(nodeShoot1 != null) {
+			root.getChildren().remove(nodeShoot1);
+		}
+		if(nodeShoot2 != null) {
+			root.getChildren().remove(nodeShoot2);
+		}
 		
+		
+		nodeShoot1.setImage(new Image(VisualAsset.SHOOT.getFilePath()));
+		nodeShoot2.setImage(new Image(VisualAsset.SHOOT.getFilePath()));
 		rockets.add(nodeShoot1);
 		rockets.add(nodeShoot2);
 

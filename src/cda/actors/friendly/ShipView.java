@@ -1,7 +1,9 @@
 package cda.actors.friendly;
 
 import cda.commons.libs.VisualAsset;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public enum ShipView {
 	SHIP(new Image(VisualAsset.SHIP.getFilePath())),
@@ -10,13 +12,21 @@ public enum ShipView {
 	SHIP_RIGHT(new Image(VisualAsset.SHIP_RIGHT.getFilePath()));
 
 	private final Image image;
+	private final ImageView node;
 
 	ShipView(Image pImage) {
 		this.image = pImage;
+		this.node = new ImageView(pImage);
 	}
 	
 	public Image getImage() {
 	return this.image;
 	}
+
+	public ImageView getNode() {
+		return node;
+	}
+	
+	
 
 }
