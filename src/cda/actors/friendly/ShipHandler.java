@@ -1,5 +1,6 @@
 package cda.actors.friendly;
 
+import cda.commons.Global;
 import cda.screens.game.GamePlayScreen;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
@@ -22,21 +23,21 @@ public class ShipHandler {
 	private static boolean left;
 	private static boolean right;
 	private static ImageView nodeShip;
+	private final static double WIDTH = Global.SCREEN_WIDTH;
+	private final static double HEIGHT = Global.SCREEN_HEIGHT;
 	
 	public static Ship shipMove() {
 		Pane root = GamePlayScreen.getRoot();
-		final double width = root.getScene().getWidth();
 		final double height = root.getScene().getHeight();
 		
-		Ship ship = new Ship(width/2, height/2, 64, 64, ShipView.SHIP_NOREACTOR.getImage(), 4, true, false, false, 5, 0);
+		Ship ship = new Ship(WIDTH/2, height/2, 64, 64, ShipView.SHIP_NOREACTOR.getImage(), 4, true, false, false, 5, 0);
 		Ship.setShip(ship);
 		nodeShip = ship.getNode();	
 
 
-
 		root.getChildren().add(nodeShip);
 
-		moveShipTo(nodeShip, width / 2, height / 2, width, height);
+		moveShipTo(nodeShip, WIDTH / 2, height / 2, WIDTH, height);
 
 		root.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
@@ -82,39 +83,38 @@ public class ShipHandler {
 			}
 		});
 
-		AnimationTimer timer = new AnimationTimer() {
-			@Override
-			public void handle(long now) {
-				int dx = 0, dy = 0;
-
-				if (up) {
-					dy -= 5;
-					nodeShip.setImage(ShipView.SHIP.getImage());
-				} 
-				if (down) {
-					dy += 5;
-					nodeShip.setImage(ShipView.SHIP.getImage());
-				}
-				if (left) {
-					dx -= 5;
-					nodeShip.setImage(ShipView.SHIP_LEFT.getImage());
-				}
-				if (right) {
-					dx += 5;
-					nodeShip.setImage(ShipView.SHIP_RIGHT.getImage());
-				}
-				if(!up && !down && !left && !right) {
-					nodeShip.setImage(ShipView.SHIP_NOREACTOR.getImage());
-
-				}
-
-				moveShipBy(nodeShip, dx, dy, width, height);
-			}
-		};
-		timer.start();
+		
+		
 		return ship;
 	}
 
+	public static void movehandler() {
+		int dx = 0, dy = 0;
+
+		if (up) {
+			dy -= 5;
+			nodeShip.setImage(ShipView.SHIP.getImage());
+		} 
+		if (down) {
+			dy += 5;
+			nodeShip.setImage(ShipView.SHIP.getImage());
+		}
+		if (left) {
+			dx -= 5;
+			nodeShip.setImage(ShipView.SHIP_LEFT.getImage());
+		}
+		if (right) {
+			dx += 5;
+			nodeShip.setImage(ShipView.SHIP_RIGHT.getImage());
+		}
+		if(!up && !down && !left && !right) {
+			nodeShip.setImage(ShipView.SHIP_NOREACTOR.getImage());
+
+		}
+
+		moveShipBy(nodeShip, dx, dy, WIDTH, HEIGHT);
+	}
+		
 	public static void moveShipBy(ImageView pShip, int px, int py, double pWidth, double pHeight) {
 		if (px == 0 && py == 0)
 			return;
