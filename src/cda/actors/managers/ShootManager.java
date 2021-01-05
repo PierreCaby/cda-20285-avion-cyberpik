@@ -3,14 +3,11 @@ package cda.actors.managers;
 import java.util.ArrayList;
 
 import cda.actors.friendly.Ship;
-import cda.commons.libs.SoundEffectAsset;
 import cda.commons.libs.VisualAsset;
-import cda.screens.AbstractScreen;
 import cda.screens.game.GamePlayScreen;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -27,17 +24,15 @@ import javafx.util.Duration;
 public class ShootManager {
 	
 	private static ArrayList<ImageView> rockets = new ArrayList<>();
+	private static float timer;
 	
 	public static void shootManager() {
 		Pane root = GamePlayScreen.getRoot();
 		Ship ship = Ship.getShip();
+		timer = 10;
 		ship.setShoot(true);
-		
-		// TODO chrono
-
-//		Ship.getShip().setShield(false);
-
 	}
+	
 	
 	
 	public static void shootCreate() {
@@ -90,6 +85,17 @@ public class ShootManager {
 
 	public static void setRockets(ArrayList<ImageView> rockets) {
 		ShootManager.rockets = rockets;
+	}
+
+	public static float getTimer() {
+		return timer*10;
+	}
+
+	public static void decreaseTimer() {
+		timer--;
+		if (timer == 0) {
+			Ship.getShip().setShoot(false);
+		}
 	}
 	
 	

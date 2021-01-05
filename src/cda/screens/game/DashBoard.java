@@ -1,6 +1,8 @@
 package cda.screens.game;
 
 import cda.actors.friendly.Ship;
+import cda.actors.managers.ShieldManager;
+import cda.actors.managers.ShootManager;
 import cda.commons.Global;
 import cda.commons.libs.FontAsset;
 import javafx.scene.layout.Pane;
@@ -49,7 +51,8 @@ public class DashBoard {
 		}
 		
 		Ship ship = gamePlayScreen.getShip();
-		String textBar = String.format(MSG_STATUS_BAR, ship.getPoint(), ship.getLifeCount(), 95.55f, 50f);
+		
+		String textBar = String.format(MSG_STATUS_BAR, ship.getPoint(), ship.getLifeCount(), ShieldManager.getTimer(), ShootManager.getTimer());
 
 		statusBarText = new Text(textBar);
 		statusBarText.setTextAlignment(TextAlignment.CENTER);
