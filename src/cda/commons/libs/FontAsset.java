@@ -1,6 +1,6 @@
 package cda.commons.libs;
 
-import java.io.File;
+import java.net.URISyntaxException;
 
 /**
  * 
@@ -17,7 +17,11 @@ public enum FontAsset {
 	private final String filePath;
 
 	FontAsset(String pFileName) {
-		this.filePath = new File("assets/font/" + pFileName).toURI().toString();
+		try {
+			this.filePath = FontAsset.class.getResource("/font/" + pFileName).toURI().toString();
+		} catch (URISyntaxException e) {
+			throw new IllegalArgumentException(e.getCause());
+		}
 	}
 
 	public String getFilePath() {

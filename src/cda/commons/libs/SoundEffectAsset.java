@@ -1,6 +1,6 @@
 package cda.commons.libs;
 
-import java.io.File;
+import java.net.URISyntaxException;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -25,7 +25,11 @@ public enum SoundEffectAsset {
 	private final String filePath;
 
 	SoundEffectAsset(String pFileName) {
-		this.filePath = new File("assets/audio/sound-effect/" + pFileName).toURI().toString();
+		try {
+			this.filePath = SoundEffectAsset.class.getResource("/audio/sound-effect/" + pFileName).toURI().toString();
+		} catch (URISyntaxException e) {
+			throw new IllegalArgumentException(e.getCause());
+		}
 	}
 
 	public String getFilePath() {
