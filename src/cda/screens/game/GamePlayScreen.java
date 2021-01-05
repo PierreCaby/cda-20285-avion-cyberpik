@@ -10,6 +10,7 @@ import cda.actors.managers.ShootManager;
 import cda.commons.Global;
 import cda.commons.libs.MusicAsset;
 import cda.commons.libs.VisualAsset;
+import cda.game.SchmupApp;
 import cda.screens.AbstractScreen;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
@@ -58,6 +59,11 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 					ShootManager.shootCreate();
 					updateShoot = now;
 				}
+
+				if (isGameOver()) {
+					closeGame();
+				}
+
 				ColisionManager.checkBonusColision();
 				ColisionManager.checkEnemyColision();
 				ColisionManager.checkRocketColision();
@@ -74,6 +80,14 @@ public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
 		imageView.setFitWidth(Global.SCREEN_WIDTH);
 		imageView.setFitHeight(Global.SCREEN_HEIGHT);
 		return imageView;
+	}
+
+	private void closeGame() {
+		window.setScene(SchmupApp.getMenuScreen().getScene());
+	}
+
+	private boolean isGameOver() {
+		return !ship.isAlive();
 	}
 
 	public Ship getShip() {

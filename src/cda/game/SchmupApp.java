@@ -8,8 +8,8 @@ import javafx.stage.Stage;
 
 /**
  *
- * Generate the main window and the main loop, load the different
- * screens
+ * Generate the main window and the main loop, display the first
+ * screen
  *
  * @author Valentin
  * 
@@ -35,12 +35,10 @@ public final class SchmupApp extends Application {
 	}
 	
 	/**
-	 * Create the different scenes through a factory
+	 * Create the first scene through a factory
 	 */
 	private static void createFirstScene(Stage window) {
 		menuScreen = ScreenFactory.createScreen(ScreenFactory.MENU_SCREEN, window);
-		// gamePlayScreen = ScreenFactory.createScreen(ScreenFactory.GAME_SCREEN, window);
-		// scoreBoardScreen = ScreenFactory.createScreen(ScreenFactory.SCORE_BOARD_SCREEN, window);
 	}
 	
 	public static void main(String[] args) {

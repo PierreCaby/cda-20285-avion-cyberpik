@@ -10,9 +10,11 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 /**
- * classe responsable des affichages "tableau" de bord : le score et la status
- * bar.
  * 
+ * class responsible for the player dashboard : score, lifeCount,
+ * weapon, shield...
+ * 
+ * @author Valentin
  *
  */
 
