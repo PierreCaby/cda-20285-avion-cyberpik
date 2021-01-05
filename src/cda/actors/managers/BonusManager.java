@@ -8,6 +8,14 @@ import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
+/**
+ * 
+ * Set the bonus behaviour.
+ * 
+ * @author Antoine
+ *
+ */
+
 public class BonusManager {
 	
 	public static void bonusCreate() {

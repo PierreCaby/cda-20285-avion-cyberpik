@@ -6,6 +6,14 @@ import cda.commons.Global;
 import cda.commons.libs.VisualAsset;
 import javafx.scene.image.Image;
 
+/**
+ * 
+ * Enemy types & creation of random enemies. 
+ * 
+ * @author Antoine
+ *
+ */
+
 public enum EnemiesType {
 	
 

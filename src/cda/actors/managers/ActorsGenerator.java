@@ -4,6 +4,14 @@ import java.util.Random;
 
 import javafx.animation.AnimationTimer;
 
+/**
+ * 
+ * Create bonus and enemies in a random way.
+ * 
+ * @author Antoine
+ *
+ */
+
 public class ActorsGenerator {
 
 	public static void actorsCreate() {

@@ -10,6 +10,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
+/**
+ * 
+ * Handle the shield display and effect.
+ * 
+ * @author Antoine
+ *
+ */
+
 public class ShieldManager {
 
 	public static void shieldManager() {

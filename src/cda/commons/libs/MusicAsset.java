@@ -2,6 +2,14 @@ package cda.commons.libs;
 
 import java.io.File;
 
+/**
+ * 
+ * Get the musics from the assets.
+ * 
+ * @author Antoine
+ *
+ */
+
 public enum MusicAsset {
 
 	GAME("game.mp3"),

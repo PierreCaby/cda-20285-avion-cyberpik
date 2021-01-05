@@ -5,6 +5,14 @@ import java.util.ArrayList;
 import cda.actors.AbstractActors;
 import javafx.scene.image.Image;
 
+/**
+ * 
+ * Enemy builder, list & specific getters/setters.
+ * 
+ * @author Antoine
+ *
+ */
+
 public class Enemy extends AbstractActors {
 	private int damage;
 	private int points;

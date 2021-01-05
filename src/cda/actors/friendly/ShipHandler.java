@@ -1,13 +1,19 @@
 package cda.actors.friendly;
 
-import cda.commons.libs.VisualAsset;
 import cda.screens.game.GamePlayScreen;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+
+/**
+ * 
+ * Ship movement handler with visual changing.
+ * 
+ * @author Antoine
+ *
+ */
 
 public class ShipHandler {
 
@@ -83,22 +89,22 @@ public class ShipHandler {
 
 				if (up) {
 					dy -= 5;
-					nodeShip.setImage(new Image(VisualAsset.SHIP.getFilePath()));
+					nodeShip.setImage(ShipView.SHIP.getImage());
 				} 
 				if (down) {
 					dy += 5;
-					nodeShip.setImage(new Image(VisualAsset.SHIP.getFilePath()));
+					nodeShip.setImage(ShipView.SHIP.getImage());
 				}
 				if (left) {
 					dx -= 5;
-					nodeShip.setImage(new Image(VisualAsset.SHIP_LEFT.getFilePath()));
+					nodeShip.setImage(ShipView.SHIP_LEFT.getImage());
 				}
 				if (right) {
 					dx += 5;
-					nodeShip.setImage(new Image(VisualAsset.SHIP_RIGHT.getFilePath()));
+					nodeShip.setImage(ShipView.SHIP_RIGHT.getImage());
 				}
 				if(!up && !down && !left && !right) {
-					nodeShip.setImage(new Image(VisualAsset.SHIP_NOREACTOR.getFilePath()));
+					nodeShip.setImage(ShipView.SHIP_NOREACTOR.getImage());
 
 				}
 

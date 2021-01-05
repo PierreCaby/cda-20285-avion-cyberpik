@@ -2,6 +2,14 @@ package cda.commons.libs;
 
 import java.io.File;
 
+/**
+ * 
+ * Get the font from the assets.
+ * 
+ * @author Antoine
+ *
+ */
+
 public enum FontAsset {
 
 	FIVE_BY_FIVE("five-by-five.ttf");

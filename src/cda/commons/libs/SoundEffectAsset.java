@@ -5,6 +5,14 @@ import java.io.File;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
+/**
+ * 
+ * Get the sound effects from the assets.
+ * 
+ * @author Antoine
+ *
+ */
+
 public enum SoundEffectAsset {
 
 	EXPLOSION("explosion.wav"),

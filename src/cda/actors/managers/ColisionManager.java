@@ -8,6 +8,14 @@ import cda.screens.game.GamePlayScreen;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
+/**
+ * 
+ * Check the colision between the actors/artefacts and call their effects.
+ * 
+ * @author Antoine
+ *
+ */
+
 public class ColisionManager {
 
 	private static boolean isColliding(Ship pShip, AbstractActors pActor) {
@@ -47,7 +55,6 @@ public class ColisionManager {
 				if (!ship.isShield()) {					
 					ship.decreaseLife(enemy.getDamage());
 				}
-				System.out.println(ship.getLifeCount());
 				enemy.destroy();
 			}
 		}
@@ -61,7 +68,6 @@ public class ColisionManager {
 			if (isCollidingRocket(enemy, rocket)) {
 				ExplosionManager.explosionDisplay(enemy);
 				ship.increasePoint(enemy.getPoints());
-				System.out.println(ship.getPoint());
 				enemy.destroy();
 			}
 		}
