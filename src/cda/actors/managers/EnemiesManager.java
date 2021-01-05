@@ -12,6 +12,14 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
+/**
+ * 
+ * Set the enemies behaviour.
+ * 
+ * @author Antoine
+ *
+ */
+
 public class EnemiesManager {
 
 	public static void enemiesCreate() {

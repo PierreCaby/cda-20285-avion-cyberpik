@@ -1,9 +1,16 @@
 package cda.actors.friendly;
 
 import cda.commons.libs.VisualAsset;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
+/**
+ * 
+ * Ship visuals with getters.
+ * 
+ * @author Antoine
+ *
+ */
 
 public enum ShipView {
 	SHIP(new Image(VisualAsset.SHIP.getFilePath())),

@@ -3,6 +3,14 @@ package cda.actors.friendly;
 import cda.actors.AbstractActors;
 import javafx.scene.image.Image;
 
+/**
+ * 
+ * Ship builder & specific getters/setters.
+ * 
+ * @author Antoine
+ *
+ */
+
 public class Ship extends AbstractActors {
 	private boolean shield;
 	private boolean shoot;

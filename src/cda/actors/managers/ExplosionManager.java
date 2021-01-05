@@ -11,6 +11,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
+/**
+ * 
+ * Set the explosion display.
+ * 
+ * @author Antoine
+ *
+ */
+
 public class ExplosionManager {
 
 	private static ImageView image1;
@@ -75,16 +83,16 @@ public class ExplosionManager {
 	}
 
 	private static void smallImage() {
-		image1 = new ImageView(new Image(VisualAsset.EXPLOSION_SMALL_2.getFilePath()));
-		image2 = new ImageView(new Image(VisualAsset.EXPLOSION_SMALL_4.getFilePath()));
-		image3 = new ImageView(new Image(VisualAsset.EXPLOSION_SMALL_6.getFilePath()));
-		image4 = new ImageView(new Image(VisualAsset.EXPLOSION_SMALL_8.getFilePath()));
+		image1 = new ImageView(new Image(VisualAsset.EXPLOSION_SMALL_1.getFilePath()));
+		image2 = new ImageView(new Image(VisualAsset.EXPLOSION_SMALL_2.getFilePath()));
+		image3 = new ImageView(new Image(VisualAsset.EXPLOSION_SMALL_3.getFilePath()));
+		image4 = new ImageView(new Image(VisualAsset.EXPLOSION_SMALL_4.getFilePath()));
 	}
 
 	private static void bigImage() {
-		image1 = new ImageView(new Image(VisualAsset.EXPLOSION_BIG_2.getFilePath()));
-		image2 = new ImageView(new Image(VisualAsset.EXPLOSION_BIG_4.getFilePath()));
-		image3 = new ImageView(new Image(VisualAsset.EXPLOSION_BIG_6.getFilePath()));
-		image4 = new ImageView(new Image(VisualAsset.EXPLOSION_BIG_8.getFilePath()));
+		image1 = new ImageView(new Image(VisualAsset.EXPLOSION_BIG_1.getFilePath()));
+		image2 = new ImageView(new Image(VisualAsset.EXPLOSION_BIG_2.getFilePath()));
+		image3 = new ImageView(new Image(VisualAsset.EXPLOSION_BIG_3.getFilePath()));
+		image4 = new ImageView(new Image(VisualAsset.EXPLOSION_BIG_4.getFilePath()));
 	}
 }

@@ -15,6 +15,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
+/**
+ * 
+ * Handle the shoot display and effect.
+ * 
+ * @author Antoine
+ *
+ */
+
 public class ShootManager {
 	
 	private static ArrayList<Node> rockets = new ArrayList<>();

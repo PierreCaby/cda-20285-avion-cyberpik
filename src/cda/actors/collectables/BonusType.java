@@ -6,6 +6,14 @@ import cda.commons.Global;
 import cda.commons.libs.VisualAsset;
 import javafx.scene.image.Image;
 
+/**
+ * 
+ * Bonus types & creation of random bonus 
+ * 
+ * @author Antoine
+ *
+ */
+
 public enum BonusType {
 
 	PROTECTION(Global.SCREEN_WIDTH - 50, -100, 50, 50, new Image(VisualAsset.PROTECTION.getFilePath()), 4.5, true, false),

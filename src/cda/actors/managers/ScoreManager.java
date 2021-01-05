@@ -4,6 +4,14 @@ import cda.actors.enemies.Enemy;
 import cda.actors.friendly.Ship;
 import cda.commons.Global;
 
+/**
+ * 
+ * Calculate when and how many points have to be added.
+ * 
+ * @author Antoine
+ *
+ */
+
 public class ScoreManager {
 
 	public static void scoreCalculator() {

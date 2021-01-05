@@ -3,6 +3,14 @@ package cda.actors;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+ * 
+ * Abstract Class for every actors on the screen.
+ * 
+ * @author Antoine
+ *
+ */
+
 public abstract class AbstractActors {
 	private double positionX;
 	private double positionY;
