@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import cda.actors.friendly.Ship;
 import cda.commons.libs.SoundEffectAsset;
 import cda.commons.libs.VisualAsset;
+import cda.screens.AbstractScreen;
 import cda.screens.game.GamePlayScreen;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -25,7 +26,7 @@ import javafx.util.Duration;
 
 public class ShootManager {
 	
-	private static ArrayList<Node> rockets = new ArrayList<>();
+	private static ArrayList<ImageView> rockets = new ArrayList<>();
 	
 	public static void shootManager() {
 		Pane root = GamePlayScreen.getRoot();
@@ -75,19 +76,19 @@ public class ShootManager {
 		timeline2.setCycleCount(Animation.INDEFINITE);
 		timeline2.play();
 		
-		SoundEffectAsset.play(SoundEffectAsset.SHOT);
+//		AbstractScreen.playSoundEffect(SoundEffectAsset.SHOT);
 
 		root.getChildren().add(nodeShoot1);
 		root.getChildren().add(nodeShoot2);
 	}
 
 
-	public static ArrayList<Node> getRockets() {
+	public static ArrayList<ImageView> getRockets() {
 		return rockets;
 	}
 
 
-	public static void setRockets(ArrayList<Node> rockets) {
+	public static void setRockets(ArrayList<ImageView> rockets) {
 		ShootManager.rockets = rockets;
 	}
 	

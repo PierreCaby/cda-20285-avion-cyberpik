@@ -1,8 +1,10 @@
 package cda.screens;
 
 import cda.commons.libs.MusicAsset;
+import cda.commons.libs.SoundEffectAsset;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -30,6 +32,12 @@ public abstract class AbstractScreen {
 		musicMediaPlayer = new MediaPlayer(musicMedia);
 		musicMediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 		musicMediaPlayer.setAutoPlay(true);
+	}
+	
+	public static void playSoundEffect(SoundEffectAsset pMusic) {
+		AudioClip audio = new AudioClip(pMusic.getFilePath());
+		audio.setVolume(0.5f);
+        audio.play();
 	}
 
 	protected static void stopMusic() {

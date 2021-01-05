@@ -19,7 +19,7 @@ public enum MusicAsset {
 
 	MusicAsset(String pFileName) {
 		try {
-			this.filePath = MusicAsset.class.getResource("/audio/game-music/" + pFileName).toURI().toString();
+			this.filePath = ClassLoader.getSystemResource("audio/game-music/" + pFileName).toURI().toString();
 		} catch (URISyntaxException e) {
 			throw new IllegalArgumentException(e.getCause());
 		}

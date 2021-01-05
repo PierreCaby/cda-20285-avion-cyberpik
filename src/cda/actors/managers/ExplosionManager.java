@@ -3,6 +3,7 @@ package cda.actors.managers;
 import cda.actors.AbstractActors;
 import cda.commons.libs.SoundEffectAsset;
 import cda.commons.libs.VisualAsset;
+import cda.screens.AbstractScreen;
 import cda.screens.game.GamePlayScreen;
 import javafx.animation.FadeTransition;
 import javafx.animation.SequentialTransition;
@@ -37,7 +38,7 @@ public class ExplosionManager {
 
 		createExplosion(pAbstractActor);
 
-		SoundEffectAsset.play(SoundEffectAsset.EXPLOSION);
+//		AbstractScreen.playSoundEffect(SoundEffectAsset.EXPLOSION);
 
 	}
 
