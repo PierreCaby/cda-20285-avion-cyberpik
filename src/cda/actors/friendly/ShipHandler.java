@@ -1,9 +1,11 @@
 package cda.actors.friendly;
 
+import cda.commons.libs.VisualAsset;
 import cda.screens.game.GamePlayScreen;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
-import javafx.scene.Node;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 
@@ -13,16 +15,16 @@ public class ShipHandler {
 	private static boolean down;
 	private static boolean left;
 	private static boolean right;
-	private static Node nodeShip;
+	private static ImageView nodeShip;
 	
 	public static Ship shipMove() {
 		Pane root = GamePlayScreen.getRoot();
 		final double width = root.getScene().getWidth();
 		final double height = root.getScene().getHeight();
 		
-		Ship ship = new Ship(width/2, height/2, 64, 64, ShipView.SHIP.getImage(), 4, true, false, false, 5, 0);
+		Ship ship = new Ship(width/2, height/2, 64, 64, ShipView.SHIP_NOREACTOR.getImage(), 4, true, false, false, 5, 0);
 		Ship.setShip(ship);
-		nodeShip = ship.getNode();		
+		nodeShip = ship.getNode();	
 
 
 
@@ -79,14 +81,26 @@ public class ShipHandler {
 			public void handle(long now) {
 				int dx = 0, dy = 0;
 
-				if (up)
+				if (up) {
 					dy -= 5;
-				if (down)
+					nodeShip.setImage(new Image(VisualAsset.SHIP.getFilePath()));
+				} 
+				if (down) {
 					dy += 5;
-				if (left)
+					nodeShip.setImage(new Image(VisualAsset.SHIP.getFilePath()));
+				}
+				if (left) {
 					dx -= 5;
-				if (right)
+					nodeShip.setImage(new Image(VisualAsset.SHIP_LEFT.getFilePath()));
+				}
+				if (right) {
 					dx += 5;
+					nodeShip.setImage(new Image(VisualAsset.SHIP_RIGHT.getFilePath()));
+				}
+				if(!up && !down && !left && !right) {
+					nodeShip.setImage(new Image(VisualAsset.SHIP_NOREACTOR.getFilePath()));
+
+				}
 
 				moveShipBy(nodeShip, dx, dy, width, height);
 			}
@@ -95,7 +109,7 @@ public class ShipHandler {
 		return ship;
 	}
 
-	public static void moveShipBy(Node pShip, int px, int py, double pWidth, double pHeight) {
+	public static void moveShipBy(ImageView pShip, int px, int py, double pWidth, double pHeight) {
 		if (px == 0 && py == 0)
 			return;
 
@@ -108,7 +122,7 @@ public class ShipHandler {
 		moveShipTo(pShip, x, y, pWidth, pHeight);
 	}
 
-	public static void moveShipTo(Node pShip, double px, double py, double pWidth, double pHeight) {
+	public static void moveShipTo(ImageView pShip, double px, double py, double pWidth, double pHeight) {
 		final double vx = pShip.getBoundsInLocal().getWidth() / 2;
 		final double vy = pShip.getBoundsInLocal().getHeight() / 2;
 

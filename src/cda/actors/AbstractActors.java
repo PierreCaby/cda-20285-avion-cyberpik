@@ -1,6 +1,5 @@
 package cda.actors;
 
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -11,7 +10,7 @@ public abstract class AbstractActors {
 	private double dimensionY;
 	private Image image;
 	private double speed;
-	private Node node;
+	private ImageView node;
 	private boolean isAlive;
 	
 	public AbstractActors(double pPositionX, double pPositionY, double pDimensionX, double pDimensionY, Image pImage, double pSpeed, boolean isAlive) {
@@ -49,7 +48,7 @@ public abstract class AbstractActors {
 		return speed;
 	}
 
-	public Node getNode() {
+	public ImageView getNode() {
 		return node;
 	}
 
@@ -67,14 +66,12 @@ public abstract class AbstractActors {
 		this.getNode().setVisible(false);
 	}
 
-	public void setNode(Node pNode) {
+	public void setNode(ImageView pNode) {
 		this.node = pNode;
 	}
 
 	public void setImage(Image image) {
 		this.image = image;
 	}
-	
-	
 	
 }
