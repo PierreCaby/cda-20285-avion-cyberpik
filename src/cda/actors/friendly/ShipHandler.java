@@ -13,6 +13,7 @@ public class ShipHandler {
 	private static boolean down;
 	private static boolean left;
 	private static boolean right;
+	private static Node nodeShip;
 	
 	public static Ship shipMove() {
 		Pane root = GamePlayScreen.getRoot();
@@ -21,7 +22,7 @@ public class ShipHandler {
 		
 		Ship ship = new Ship(width/2, height/2, 64, 64, ShipView.SHIP.getImage(), 4, true, false, false, 5, 0);
 		Ship.setShip(ship);
-		Node nodeShip = ship.getNode();		
+		nodeShip = ship.getNode();		
 
 
 
@@ -94,25 +95,25 @@ public class ShipHandler {
 		return ship;
 	}
 
-	public static void moveShipBy(Node pShip, int dx, int dy, double pWidth, double pHeight) {
-		if (dx == 0 && dy == 0)
+	public static void moveShipBy(Node pShip, int px, int py, double pWidth, double pHeight) {
+		if (px == 0 && py == 0)
 			return;
 
-		final double cx = pShip.getBoundsInLocal().getWidth() / 2;
-		final double cy = pShip.getBoundsInLocal().getHeight() / 2;
+		final double vx = pShip.getBoundsInLocal().getWidth() / 2;
+		final double vy = pShip.getBoundsInLocal().getHeight() / 2;
 
-		double x = cx + pShip.getLayoutX() + dx;
-		double y = cy + pShip.getLayoutY() + dy;
+		double x = vx + pShip.getLayoutX() + px;
+		double y = vy + pShip.getLayoutY() + py;
 
 		moveShipTo(pShip, x, y, pWidth, pHeight);
 	}
 
-	public static void moveShipTo(Node pShip, double x, double y, double pWidth, double pHeight) {
-		final double cx = pShip.getBoundsInLocal().getWidth() / 2;
-		final double cy = pShip.getBoundsInLocal().getHeight() / 2;
+	public static void moveShipTo(Node pShip, double px, double py, double pWidth, double pHeight) {
+		final double vx = pShip.getBoundsInLocal().getWidth() / 2;
+		final double vy = pShip.getBoundsInLocal().getHeight() / 2;
 
-		if (x - cx >= 0 && x + cx <= pWidth && y - cy >= 0 && y + cy <= pHeight) {
-			pShip.relocate(x - cx, y - cy);
+		if (px - vx >= 0 && px + vx <= pWidth && py - vy >= 0 && py + vy <= pHeight) {
+			pShip.relocate(px - vx, py - vy);
 		}
 	}
 

@@ -27,15 +27,23 @@ public class ShieldManager {
 	public static void shieldCreate() {
 		Pane root = GamePlayScreen.getRoot();
 		Ship ship = Ship.getShip();
-		ImageView nodeShield = new ImageView(new Image(VisualAsset.SHIELD.getFilePath()));
+		ImageView nodeShield = new ImageView();
+		
+		if(nodeShield != null) {
+			root.getChildren().remove(nodeShield);
+		}
+		
+		nodeShield.setImage(new Image(VisualAsset.SHIELD.getFilePath()));
 		nodeShield.setX(ship.getNode().getBoundsInParent().getMinX() - 10);
 		nodeShield.setY(ship.getNode().getBoundsInParent().getMinY() - 10);
+		
 		FadeTransition vFT = new FadeTransition();
 		vFT.setNode(nodeShield);
 		vFT.setDuration(Duration.millis(1));
 		vFT.setFromValue(0.000001);
 		vFT.setToValue(0);
 		vFT.play();
+		
 		root.getChildren().add(nodeShield);
 	}
 
