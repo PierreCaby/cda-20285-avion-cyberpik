@@ -1,6 +1,6 @@
 package cda.commons.libs;
 
-import java.io.File;
+import java.net.URISyntaxException;
 
 /**
  * 
@@ -12,13 +12,17 @@ import java.io.File;
 
 public enum MusicAsset {
 
-	GAME("game.mp3"),
+	GAME("game.mp3"), 
 	STARTER_MENU("starter-menu.mp3");
 
 	private final String filePath;
 
 	MusicAsset(String pFileName) {
-		this.filePath = new File("assets/audio/game-music/" + pFileName).toURI().toString();
+		try {
+			this.filePath = MusicAsset.class.getResource("/audio/game-music/" + pFileName).toURI().toString();
+		} catch (URISyntaxException e) {
+			throw new IllegalArgumentException(e.getCause());
+		}
 	}
 
 	public String getFilePath() {

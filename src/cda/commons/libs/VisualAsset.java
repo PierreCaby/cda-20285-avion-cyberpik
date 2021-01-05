@@ -1,6 +1,6 @@
 package cda.commons.libs;
 
-import java.io.File;
+import java.net.URISyntaxException;
 
 /**
  * 
@@ -43,7 +43,11 @@ public enum VisualAsset {
 	private final String filePath;
 	
 	VisualAsset(String pFileName) {
-		this.filePath = new File("assets/visual/" + pFileName).toURI().toString();
+		try {
+			this.filePath = SoundEffectAsset.class.getResource("/visual/" + pFileName).toURI().toString();
+		} catch (URISyntaxException e) {
+			throw new IllegalArgumentException(e.getCause());
+		}
 	}
 
 	public String getFilePath() {
