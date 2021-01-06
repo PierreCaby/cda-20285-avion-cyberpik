@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="cda.screens.menu.Title" project="cda-20285-avion-cyberpik" 
+    file="/cda-20285-avion-cyberpik/src/cda/screens/menu/Title.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="142" width="155" x="272" y="137"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="cda.screens.game.GamePlayScreen" project="cda-20285-avion-cyberpik" 
+    file="/cda-20285-avion-cyberpik/src/cda/screens/game/GamePlayScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="232" width="248" x="549" y="444"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="cda.screens.menu.MenuItem" project="cda-20285-avion-cyberpik" 
+    file="/cda-20285-avion-cyberpik/src/cda/screens/menu/MenuItem.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="186" x="467" y="137"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="cda.screens.menu.MenuScreen" project="cda-20285-avion-cyberpik" 
+    file="/cda-20285-avion-cyberpik/src/cda/screens/menu/MenuScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="268" width="261" x="837" y="444"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="cda.screens.AbstractScreen" project="cda-20285-avion-cyberpik" 
+    file="/cda-20285-avion-cyberpik/src/cda/screens/AbstractScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="267" width="258" x="693" y="137"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="cda.screens.ScreenFactory" project="cda-20285-avion-cyberpik" 
+    file="/cda-20285-avion-cyberpik/src/cda/screens/ScreenFactory.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="257" x="991" y="137"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="7">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="8">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
