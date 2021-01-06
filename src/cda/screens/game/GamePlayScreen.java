@@ -19,10 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class GamePlayScreen extends AbstractScreen // implements ArtefactsScene
-{
-
-	private BackgroundParallaxScrolling scrolling;
+public class GamePlayScreen extends AbstractScreen {
 	private DashBoard dashBoard;
 	private Ship ship;
 	private AnimationTimer timer;
